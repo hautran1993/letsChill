@@ -3,14 +3,6 @@ $(document).ready(function(){
 	console.log("we ready")
 	
 //scrolling effect click function
-	$("nav").find("a").click(function(e) {
-	    e.preventDefault();
-	    var section = $(this).attr("href");
-	    $("html, body").animate({
-	        scrollTop: $(section).offset().top
-	    });
-	});	
-
 
   // Initialize Firebase
   var config = {
@@ -23,10 +15,88 @@ $(document).ready(function(){
   };
   firebase.initializeApp(config);
 
-  var database = firebase.database();
-  var name ="";
-  var hobbies= "";
+var database = firebase.database();
+var currentEmail = "";
+var currentUsername = "";
+var currentPassword = "";
+var currentLikes = [];
 
+function signIn() {
+  var email = $("#login-user-email").val();
+  var password = $("#login-user-password").val();
+  currentPassword = password;
+  currentEmail = encodeURIComponent(email).replace('.', '%2E');
+  database.ref().once("value", function(snapshot) {
+    var emailExists = snapshot.child("users/" + currentEmail).exists();
+    if(emailExists === true) {
+      console.log("email exists")
+      if(snapshot.child("users/" + currentEmail + "/password").val() === currentPassword){
+        alert("You have been logged in!")
+      }
+      else{
+        console.log("Password is incorrect.")
+      };
+    }
+    else {
+      console.log("A user with that email does not exist.")
+    }
+  });
+};
+function signUp() {
+  var userName = $("#sign-user-name").val();
+  var password = $("#sign-user-password").val();
+  var email = $("#sign-user-email").val();
+  var emailEncode = encodeURIComponent(email).replace('.', '%2E');
+    database.ref("users/").once("value", function(snapshot) {
+  		var emailExists = snapshot.child(emailEncode).exists();
+	  	if(emailExists === false) {
+	  		console.log("true")
+		  	database.ref("users/" + emailEncode).set({
+			    username: userName,
+			    password: password,
+			    likes: []
+			
+			});  
+		}
+		else{
+			console.log("this email already exist");
+		}
+	});
+};
+
+function compare(){
+  database.ref("users/").once("value", function(snapshot) {
+    var currentLikes = snapshot.child(currentEmail).val().likes;
+    snapshot.forEach(function(child) {
+      if(currentEmail !== child.key){
+        var otherUser = child.val().likes;
+        var similar = [];
+        Array.prototype.compare = function(interests) {
+          var similar = [];
+          for(var i in this) {   
+            if(interests.indexOf(this[i]) > -1) {
+              similar.push(this[i]);
+            };
+          };
+          return similar;
+        };
+        similar = currentLikes.compare(otherUser);
+        if(similar.length> 2) {
+          console.log("You have a match with " + child.val().username + similar);
+        };
+      }
+    });
+  });
+};
+$(document).on("click", "#compare", function() {
+  compare();
+});
+$(document).on("click", "#sign-up", function() {
+  signUp();
+});
+$(document).on("click", "#log-in", function() {
+  signIn();
+});
 //using jquerry to hide the modal and to take the data in the form that user
 //has submitted and display it in username section h2
 
@@ -34,25 +104,8 @@ $(document).ready(function(){
 
 //compareing multiple
 
-
 //compare arrays example
-    var dave= ["cat", "reading", "dog video", "running", "hunting"];
-    var marcus= ["bat", "cat","running", "dog video", "hut", "singing"];
-    var robert= ["cat", "bat", "hunting", "reading"];
-	var similar = [];
-Array.prototype.compare = function(interests) {
-    var similar = [];
-    for(var i in this) {   
-        if(interests.indexOf(this[i]) > -1) {
-            similar.push(this[i]);
-        };
-    };
-    return similar;
-};
-similar = dave.compare(marcus);
-if(similar.length> 2) {
-  console.log("You have a match! " + similar);
-};
+  
 //google API
 
 //function start
@@ -73,8 +126,15 @@ if(similar.length> 2) {
 // 		$("#six").hide();
 // 	})
 
+//scrolling effects
+$("nav").find("a").click(function(e) {
+	    e.preventDefault();
+	    var section = $(this).attr("href");
+	    $("html, body").animate({
+	        scrollTop: $(section).offset().top
+	    });
+	});	
 
-// start();
 
 });
 var videos = ["MXgnIP4rMoI","MloJx8bAcOw", "dQw4w9WgXcQ"]
