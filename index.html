@@ -5,13 +5,141 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Youtube App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id videos></div>
-
-
-    <script src="logic.js"></script>
+  <!-- header -->
+        <header>
+                <nav class="navbar navbar-inverse navbar-fixed-top">
+                        <div class="container-fluid">
+                          <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>                        
+                           </button>
+                            <a class="navbar-brand" href="#">Lets Chill</a>
+                          </div>
+                          <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav">
+                              <li class="active"><a href="#one">Home Page</a></li>
+                              <li><a href="#two">Hobbies</a></li>
+                              <li><a href="#3">Videos</a></li>
+                              <li><a href="#4">People Of Intrest</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                              <li><a data-toggle="modal" data-target="#signUp-modal"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                              <li><a data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </nav>
+                </header>
+  <!--section-->
+  <section id="one" style="min-height: 840px">
+    <br>
+    <br>
+    <br>
+   <div class="container" style="background-color: purple; opacity:.5"> 
+   <h2>Username</h2>
+          <hr>
+       
+    </div>    
+  </section>
+   <!--section 2-->
+  <section id="two" style="min-height: 840px">
+  <br>
+  <br>
+  <div class= "container">              
+        <div id="vidsOrPics">
+            <img src="https://blog.majestic.com/wp-content/uploads/2010/10/Video-Icon-crop.png">
+            <img src="http://mamiverse.com/wp-content/uploads/2016/06/Happy-Hobbies-15-Leisure-Activities-to-Make-You-Smile-MainPhoto.jpg">
+        </div>
+  </div>   
+    
+      </section>
+      <!-- section 3-->
+      <section id="3" style="min-height: 840px">              
+        <div id="vidsOrPics">
+            <img src="https://blog.majestic.com/wp-content/uploads/2010/10/Video-Icon-crop.png">
+            <img src="http://mamiverse.com/wp-content/uploads/2016/06/Happy-Hobbies-15-Leisure-Activities-to-Make-You-Smile-MainPhoto.jpg">
+        </div>  
+  </section>
+  <!-- section 4-->
+  <section id="4" style="min-height: 840px;background:blue">              
+    <br>
+    <br>
+          
+  </section>
+  <!-- section 5-->
+  <section id="5" style="min-height: 840px;background:red">      
+    <div class="col-md-8" id="contact-form">
+    </div>
+  </section>
+  <!-- user modals -->
+  <div class="modal fade" tabindex="-1" role="dialog" id="signUp-modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">User Sign Up</h4>
+        </div>
+        <div class="modal-body">
+           <form>
+            <div class="form-group">
+            <label>User Name</label>
+            <input class="form-control" type="text" id="user-name">
+            </div>
+            <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" id="user-password">
+            </div>
+            <div class="form-group">
+            <label>Email</label>        
+            <input type="email" class="form-control" placeholder="example@gmail.com" id="user-email">
+            </div>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="sign-up">Sign up</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  <!-- login modal -->
+   <div class="modal fade" tabindex="-1" role="dialog" id="login-modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">User Log in</h4>
+        </div>
+        <div class="modal-body">
+           <form>
+            <div class="form-group">
+            <label>Email</label>        
+            <input type="email" class="form-control" placeholder="example@gmail.com" id="user-email">
+            </div>
+           
+            <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" id="user-password">
+            </div>
+            
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="sign-up">Log in</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="logic.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
