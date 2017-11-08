@@ -126,6 +126,16 @@ $(document).on("click", "#log-in", function() {
 // 		$("#six").hide();
 // 	})
 
+//first thing i have to do is check the user is login or not 
+  //if login is true allow him or her to click on this hobby
+  //other not login direct to login page
+  //make a button somewhere for painting, it'll show all of the user that likes painting 
+  //make a button for a chat
+  //have to seperate some how
+  //have pages for people with the same group of hobbies.
+  //profile page with pictures.
+
+
 //scrolling effects
 $("nav").find("a").click(function(e) {
 	    e.preventDefault();
@@ -134,7 +144,6 @@ $("nav").find("a").click(function(e) {
 	        scrollTop: $(section).offset().top
 	    });
 	});	
-
 
 });
 var videos = ["MXgnIP4rMoI","MloJx8bAcOw", "dQw4w9WgXcQ"]
@@ -168,7 +177,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
             newButton.addClass("like");
             newDiv.append(newButton);
         //change the target
-            $("#four").append(newDiv);
+            $("#two").append(newDiv);
             var player;
             player = new YT.Player(videos[i], {
                 height: '390',
