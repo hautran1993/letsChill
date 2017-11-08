@@ -1,7 +1,7 @@
 $(document).ready(function(){
-	//making sure our logic is connected
-	console.log("we ready")
-	
+  //making sure our logic is connected
+  console.log("we ready")
+  
 //scrolling effect click function
 
   // Initialize Firebase
@@ -14,62 +14,80 @@ $(document).ready(function(){
     messagingSenderId: "727975472407"
   };
   firebase.initializeApp(config);
+  var database = firebase.database();
 
-var database = firebase.database();
 var currentEmail = "";
 var currentUsername = "";
 var currentPassword = "";
 var currentLikes = [];
 
+//After clicking the sign up button, allows a person to sign up by creating a username and password. All fields and email address is required.
+function signUp() {
+  var username = $("#sign-user-name").val().trim();
+  var password = $("#sign-user-password").val().trim();
+  var email = $("#sign-user-email").val().trim();
+  //Person must enter non-empty fields and the username must contain only letters or numbers.
+  var letterNumber = /^[0-9a-zA-Z]+$/;  
+  if(username !== "" && password !== "" && email !== "" && username.match(letterNumber)) {
+    database.ref("users/").once("value", function(snapshot) {
+      var userExists = snapshot.child(username).exists();
+      //If someone with the same entered username already exists, a new account will not be created.
+      if(userExists === false) {
+        console.log("You have successfully signed up!");
+        database.ref("users/" + username).set({
+          username: username,
+          password: password,
+          email: email,
+          likes: []
+        });  
+      }
+      else{
+        console.log("This username already exists. Choose another.");
+      };
+    });
+  }
+  else {
+    console.log("Fields not valid.");
+  }
+};
+
+//When clicking the Login button after entering the required fields, 
+//this function checks if the values inputted are the same as in the database.
+//If they are the same, the user will be logged in and the page will be switched
 function signIn() {
-  var email = $("#login-user-email").val();
+  var username = $("#login-user-name").val();
   var password = $("#login-user-password").val();
+  currentUsername = username;
   currentPassword = password;
-  currentEmail = encodeURIComponent(email).replace('.', '%2E');
+
   database.ref().once("value", function(snapshot) {
-    var emailExists = snapshot.child("users/" + currentEmail).exists();
-    if(emailExists === true) {
-      console.log("email exists")
-      if(snapshot.child("users/" + currentEmail + "/password").val() === currentPassword){
+    console.log(snapshot.child("users/Apple").val());
+    var userExists = snapshot.child("users/" + username).exists();
+    //If the entered username does not exist, a message saying it doesn't exist will show.
+    if(userExists === true) {
+      console.log("This username exists.")
+      if(snapshot.child("users/" + username + "/password").val() === currentPassword) {
+        $('#login-modal').modal('toggle');
         alert("You have been logged in!")
+        currentEmail = snapshot.child("users/" + username + "/email").val();
       }
       else{
         console.log("Password is incorrect.")
       };
     }
     else {
-      console.log("A user with that email does not exist.")
-    }
+      console.log("That username does not exist.")
+    };
   });
 };
-function signUp() {
-  var userName = $("#sign-user-name").val();
-  var password = $("#sign-user-password").val();
-  var email = $("#sign-user-email").val();
-  var emailEncode = encodeURIComponent(email).replace('.', '%2E');
-    database.ref("users/").once("value", function(snapshot) {
-  		var emailExists = snapshot.child(emailEncode).exists();
-	  	if(emailExists === false) {
-	  		console.log("true")
-		  	database.ref("users/" + emailEncode).set({
-			    username: userName,
-			    password: password,
-			    likes: []
-			
-			});  
-		}
-		else{
-			console.log("this email already exist");
-		}
-	});
-};
 
-function compare(){
+//Compares the likes of two users and matches them if they have more than 2 similar likes
+function compare() {
   database.ref("users/").once("value", function(snapshot) {
-    var currentLikes = snapshot.child(currentEmail).val().likes;
+    var currentLikes = snapshot.child(currentUsername).val().likes;
     snapshot.forEach(function(child) {
-      if(currentEmail !== child.key){
-        var otherUser = child.val().likes;
+      if(currentUsername !== child.key){
+        var otherUserLikes = child.val().likes;
         var similar = [];
         Array.prototype.compare = function(interests) {
           var similar = [];
@@ -80,20 +98,24 @@ function compare(){
           };
           return similar;
         };
-        similar = currentLikes.compare(otherUser);
-        if(similar.length> 2) {
-          console.log("You have a match with " + child.val().username + similar);
+        similar = currentLikes.compare(otherUserLikes);
+        //Change number here to compare how many likes should be a match.
+        if(similar.length > 2) {
+          console.log("You have a match with " + child.val().username + " " + similar);
         };
       }
     });
   });
 };
+
 $(document).on("click", "#compare", function() {
   compare();
 });
+
 $(document).on("click", "#sign-up", function() {
   signUp();
 });
+
 $(document).on("click", "#log-in", function() {
   signIn();
 });
@@ -110,33 +132,34 @@ $(document).on("click", "#log-in", function() {
 
 //function start
 
-// 	function start(){
-// 			$("#two").hide();
-// 			$("#three").hide();
-// 			$("#four").hide();
-// 			$("#five").hide();
-// 			$("#six").hide();
-// 	}
+//  function start(){
+//      $("#two").hide();
+//      $("#three").hide();
+//      $("#four").hide();
+//      $("#five").hide();
+//      $("#six").hide();
+//  }
 
-// 	$("#meetNewPeople").on("click", function() {
-// 		$("#two").hide();
-// 		$("#three").hide();
-// 		$("#four").hide();
-// 		$("#five").hide();
-// 		$("#six").hide();
-// 	})
+//  $("#meetNewPeople").on("click", function() {
+//    $("#two").hide();
+//    $("#three").hide();
+//    $("#four").hide();
+//    $("#five").hide();
+//    $("#six").hide();
+//  })
 
 //scrolling effects
 $("nav").find("a").click(function(e) {
-	    e.preventDefault();
-	    var section = $(this).attr("href");
-	    $("html, body").animate({
-	        scrollTop: $(section).offset().top
-	    });
-	});	
-
+      e.preventDefault();
+      var section = $(this).attr("href");
+      $("html, body").animate({
+          scrollTop: $(section).offset().top
+      });
+  }); 
 
 });
+
+
 var videos = ["MXgnIP4rMoI","MloJx8bAcOw", "dQw4w9WgXcQ"]
       // 2. This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
@@ -150,10 +173,11 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
       //    after the API code downloads.
       function onYouTubeIframeAPIReady() {
 
-      	//youtube iframe API
-        for (var i = 0; i < videos.length; i++){
+        //youtube iframe API
+        for (var i = 0; i < videos.length; i++) {
             var newDiv = $("<div>");
             newDiv.addClass("video-div")
+
             var videoDiv = $("<div>");
             videoDiv.attr("id", "video" + i);
             videoDiv.addClass("video-number");
@@ -176,5 +200,4 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
                 videoId: videos[i],
             });
         };
-      }
-
+      };
