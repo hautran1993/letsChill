@@ -25,3 +25,6 @@ background: ghostwhite;
     background-size: cover;
     background-repeat: no-repeat;
 }
+html, body {
+    overflow-y:hidden;
+}

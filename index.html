@@ -24,10 +24,10 @@
                           </div>
                           <div class="collapse navbar-collapse" id="myNavbar">
                             <ul class="nav navbar-nav">
-                              <li class="active"><a href="#one">Home Page</a></li>
-                              <li><a href="#two">Hobbies</a></li>
-                              <li><a href="#three">Videos</a></li>
-                              <li><a href="#four">People Of Intrest</a></li>
+                              <li  class="tab col s3" class="active"><a href="#one">Home Page</a></li>
+                              <li  class="tab col s3">  <a href="#two">Hobbies</a></li>
+                              <li  class="tab col s3"><a href="#three">Videos</a></li>
+                              <li  class="tab col s3"><a href="#four">People Of Intrest</a></li>
                             </ul>
 
                             <ul class="nav navbar-nav navbar-right">
@@ -91,9 +91,32 @@
   <!-- section 3-->
 
   <section id="three" style="min-height: 840px">              
-        <div id="vidsOrPics">
-            <img src="https://blog.majestic.com/wp-content/uploads/2010/10/Video-Icon-crop.png">
-            <img src="http://mamiverse.com/wp-content/uploads/2016/06/Happy-Hobbies-15-Leisure-Activities-to-Make-You-Smile-MainPhoto.jpg">
+        <div id="Matches">
+          <h3>Chat With Your Matches</h3>
+          <form>
+              <div class="row">
+                <div class="large-12 columns">
+                  <div id='chitChat' class="msg-wrapper"></div>
+                  <hr />
+                 </div>
+              </div>
+              
+              <div class="row">
+                <div class="large-12 columns">
+                  <label>Name
+                    <input type="text" id='userName' placeholder='Name' />
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="large-12 columns">
+                  <label>Message
+                    <textarea id='userMess' placeholder='Message'></textarea>
+                  </label>
+                </div>
+              </div>
+            
+            </form>
         </div>  
 
   </section>
@@ -176,6 +199,7 @@
   </div><!-- /.modal -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="logic.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
