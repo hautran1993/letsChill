@@ -48,13 +48,23 @@ iframe {
     height: 0;
     margin-bottom: 5px;
 }
-.video-number iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.carousel-inner>.item>img {
+    width: 750px;
+    line-height: 1;
+    height: 600px;
+    border: solid black 5px;
+    margin: 0px;
+    padding: 5px;
+    opacity: .8;
 }
+
+#myCarousel {
+    width: 750px; 
+    height: 600px;
+    position: relative;
+    left: 170px;
+}
+
 @media screen and (max-width: 640px) {
     .video-div {
         width: 100%;

@@ -15,11 +15,14 @@ $(document).ready(function(){
   };
   firebase.initializeApp(config);
 
-var database = firebase.database();
-var currentEmail = "";
-var currentUsername = "";
-var currentPassword = "";
-var currentLikes = [];
+  var database = firebase.database();
+  var currentEmail = "";
+  var currentUsername = "";
+  var currentPassword = "";
+  var currentLikes = [];
+  var likedVideos = [];
+  var likedHobbies = [];
+
 //After clicking the sign up button, allows a person to sign up by creating a username and password. All fields and email address is required.
 function signUp() {
   var username = $("#sign-user-name").val().trim();
@@ -47,8 +50,9 @@ function signUp() {
   }
   else {
     console.log("Fields not valid.");
-  }
+  };
 };
+
 //When clicking the Login button after entering the required fields, 
 //this function checks if the values inputted are the same as in the database.
 //If they are the same, the user will be logged in and the page will be switched
@@ -65,52 +69,122 @@ function signIn() {
       console.log("This username exists.")
       if(snapshot.child("users/" + username + "/password").val() === currentPassword) {
         $('#login-modal').modal('toggle');
-        alert("You have been logged in!")
+        alert("You have been logged in!");
+        currentLikes = snapshot.child("users/" + username + "/likes").val();
         currentEmail = snapshot.child("users/" + username + "/email").val();
       }
       else{
-        console.log("Password is incorrect.")
+        //This shows if the password entered is incorrect.
+        console.log("Password is incorrect.");
       };
     }
     else {
-      console.log("That username does not exist.")
+      //This shows if the username entered does not exist in the database.
+      console.log("That username does not exist.");
     };
   });
 };
+
 //Compares the likes of two users and matches them if they have more than 2 similar likes
 function compare() {
+
   database.ref("users/").once("value", function(snapshot) {
-    var currentLikes = snapshot.child(currentUsername).val().likes;
-    snapshot.forEach(function(child) {
-      if(currentUsername !== child.key){
-        var otherUserLikes = child.val().likes;
-        var similar = [];
-        Array.prototype.compare = function(interests) {
+
+    currentLikes = snapshot.child(currentUsername).val().likes;
+    //Will only compare if the current user has liked anything.
+    if(snapshot.child(currentUsername).child("likes").exists() === true) {
+
+      //Loops through each user to compare likes with the current user.
+      snapshot.forEach(function(child) {
+        //Compares current user's likes to another user's likes if the other user has any likes.
+        if(currentUsername !== child.key && child.child("likes").exists()) {
+
+          var otherUserLikes = child.val().likes;
           var similar = [];
-          for(var i in this) {   
-            if(interests.indexOf(this[i]) > -1) {
-              similar.push(this[i]);
+          Array.prototype.compare = function(interests) {
+            for(var i in this) {   
+              if(interests.indexOf(this[i]) > -1) {
+                similar.push(this[i]);
+              };
             };
+            return similar;
           };
-          return similar;
-        };
-        similar = currentLikes.compare(otherUserLikes);
-        //Change number here to compare how many likes should be a match.
-        if(similar.length > 2) {
-          console.log("You have a match with " + child.val().username + " " + similar);
-        };
-      }
-    });
+          similar = currentLikes.compare(otherUserLikes);
+          //Change number here to compare how many likes should be a match.
+          if(similar.length > 2) {
+            console.log("You have a match with " + child.val().username + " " + similar);
+          }
+          else {
+            //This is shown when the current user's likes does not match to any other user.
+            console.log("You have no matches!");
+          };
+
+        }
+      });
+
+    }
+    else {
+      //If the current user has no likes this is ran.
+      console.log("Get some likes first!");
+    };
+
   });
+  
 };
-$(document).on("click", "#compare", function() {
-  compare();
-});
+
+//This function is ran when the hobbies are submitted or when a video is liked.
+//This will combine the videos and hobbies liked into one array.
+function combineLikes() {
+  for(var i = 0; i < likedHobbies.length; i++) {
+    if(currentLikes.indexOf(likedHobbies[i]) === -1) {
+      currentLikes.push(likedHobbies[i]);
+    };
+  };
+  for(var i = 0; i < likedVideos.length; i++) {
+    if(currentLikes.indexOf(likedVideos[i]) === -1) {
+      currentLikes.push(likedVideos[i]);
+    };
+  };
+  database.ref("users/" + currentUsername).child("likes").set(currentLikes);
+};
+
+//When the hobbies are submitted, this function will set the likes in the database.
+function hobbies() {
+  event.preventDefault();
+  likedHobbies = [];
+    $("input:checkbox[name=newsletter]:checked").each(function() {
+      likedHobbies.push($(this).val());
+    });
+  combineLikes();
+};
+
+//When a video is liked, this function will set the liked video in the database.
+function clickLikeVideo(button) {
+  videoLiked = $(button).attr("data-name");
+  if(likedVideos.indexOf(videoLiked) === -1) {
+    likedVideos.push(videoLiked);
+    combineLikes();
+  };
+};
+
 $(document).on("click", "#sign-up", function() {
   signUp();
 });
+
 $(document).on("click", "#log-in", function() {
   signIn();
+});
+
+$(document).on("click", "#submit-hobbies", function() {
+  hobbies();
+});
+
+$(document).on("click", ".like", function() {
+  clickLikeVideo(this);
+});
+
+$(document).on("click", "#compare", function() {
+  compare();
 });
 //using jquerry to hide the modal and to take the data in the form that user
 //has submitted and display it in username section h2
@@ -149,6 +223,10 @@ $(document).on("click", "#log-in", function() {
   //have to seperate some how
   //have pages for people with the same group of hobbies.
   //profile page with pictur.
+
+  //profile page with pictures.
+
+
 
 //scrolling effects
 $("nav").find("a").click(function(e) {
