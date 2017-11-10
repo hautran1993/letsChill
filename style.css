@@ -20,7 +20,7 @@ background: ghostwhite;
 */
 
 #one {
-    background-image: url("assets/images/heart.jpg");
+    background-image: url("assets/images/connect.png");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -55,7 +55,7 @@ iframe {
     border: solid black 5px;
     margin: 0px;
     padding: 5px;
-    opacity: .8;
+    opacity: .99;
 }
 
 #myCarousel {
@@ -63,7 +63,9 @@ iframe {
     height: 600px;
     position: relative;
     left: 170px;
+    padding: 5px;
 }
+
 
 @media screen and (max-width: 640px) {
     .video-div {
@@ -72,3 +74,4 @@ iframe {
 }
 /*border=solid "color" 5px*/
 /*margin 5px*/
+

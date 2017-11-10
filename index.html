@@ -11,6 +11,7 @@
 </head>
 <body>
   <!-- header -->
+<div id="front-page">
         <header>
                 <nav class="navbar navbar-inverse navbar-fixed-top">
                         <div class="container-fluid">
@@ -26,8 +27,8 @@
                             <ul class="nav navbar-nav">
                               <li class="active"><a href="#one">Home Page</a></li>
                               <li><a href="#two">Hobbies</a></li>
-                              <li><a href="#three">Videos</a></li>
-                              <li><a href="#four">People Of Intrest</a></li>
+                              <li><a href="#four">Videos</a></li>
+                              <li><a href="#three">People Of Intrest</a></li>
                             </ul>
 
                             <ul class="nav navbar-nav navbar-right">
@@ -69,14 +70,14 @@
               </div>
 
               <div class="item carousel-img">
-                <img src="assets/images/dancing1.jpeg" alt="dance">
+                <img src="assets/images/unite.jpeg" alt="dance">
                 <div class="carousel-caption ">
                   <h3>Connect With People From All Over</h3>
                 </div>
               </div>
 
               <div class="item carousel-img">
-                <img src="ny.jpg" alt="New York">
+                <img src="assets/images/friends.jpeg" alt="New York">
                 <div class="carousel-caption">
                   <h3>Discover New Friends</h3>
                 </div>
@@ -95,101 +96,126 @@
         </div>  
    </div>    
   </section>
-    
+  <!--ending of front page  -->
+</div> 
+ <!--ending of first code  -->
+    <!--show userr this once they are logged in  -->
   <!--section 2-->
-  <section id="two" style="min-height: 840px">
-    < <form>
-    <div>
-      <input type="checkbox" name="running" value="newsletter">
-      <label for="running">Running</label>
-      <img class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
-    </div>
-    <div>
-      <input type="checkbox" name="singing" value="newsletter">
-      <label for="singing">Singing</label>
-      <img class="irc_mi" src="http://www.pngmart.com/files/3/Singing-PNG-Photos-279x279.png" alt="Image result for singing translucent background"?>
-    </div>
-    <div>
-       <input type="checkbox" name="reading" value="newsletter">
-       <label for="reading">Reading</label>
-       <img class="irc_mi" src="https://www.tsl.texas.gov/sites/default/files/public/tslac/ld/projects/trc/2010/clipartbw/images/lyinggirl_450g.gif">
-    <div>
-       <input type="checkbox" name="dancing" value="newsletter">
-       <label for="dancing">Dancing</label>
-       <img class="irc_mi" src="http://3p76s62sopuo2hcrwa1rxucp.wpengine.netdna-cdn.com/wp-content/uploads/2016/08/dancers.png">
-    </div>
-    </div>
-    <div>
-      <button type="submit">This is what I enjoy!</button>
-    </div>
-  </form>
-  </section>
-  <!-- section 3-->
-  <section id="4" style="min-height: 900px;  background-color: green">              
+<div id="show-user">
+      <section id="two" style="min-height: 840px">
+        < <form>
+        <div>
+          <input type="checkbox" name="running" value="newsletter">
+          <label for="running">Running</label>
+          <img class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
+        </div>
+        <div>
+          <input type="checkbox" name="singing" value="newsletter">
+          <label for="singing">Singing</label>
+          <img class="irc_mi" src="http://www.pngmart.com/files/3/Singing-PNG-Photos-279x279.png" alt="Image result for singing translucent background"?>
+        </div>
+        <div>
+           <input type="checkbox" name="reading" value="newsletter">
+           <label for="reading">Reading</label>
+           <img class="irc_mi" src="https://www.tsl.texas.gov/sites/default/files/public/tslac/ld/projects/trc/2010/clipartbw/images/lyinggirl_450g.gif">
+        <div>
+           <input type="checkbox" name="dancing" value="newsletter">
+           <label for="dancing">Dancing</label>
+           <img class="irc_mi" src="http://3p76s62sopuo2hcrwa1rxucp.wpengine.netdna-cdn.com/wp-content/uploads/2016/08/dancers.png">
+        </div>
+        </div>
+        <div>
+          <button type="submit">This is what I enjoy!</button>
+        </div>
+      </form>
+      </section>
+      <!-- section 3-->
+      <section style="min-height: 900px;  background-color: green">              
+        <br>
+        <br>
+      <div class="container">
+        <h2>pictures and videos goes here
+        </h2>
+        <div id="pix-bay">
+        </div>
+      </div>
+      <input type="text" id="search-videos">testing
+            <button id="search-button">Search</button>
+            <br>
+            <!--pia bay sear goes here  -->
+       <input type="text" id="search-pictures">testing
+            <button id="search-pictures">Search</button>      
+
+      </section>
+      <section id="three" style="min-height: 600px; background-color: yellow;">              
+        <div class="container" id="Matches">
+          <h3>Chat With Your Matches</h3>
+          <div id="people"></div>
+            <button id="compare">compare</button>
+          <div id="matches">
+          </div>
+          <form>
+              <div class="row">
+                <div class="large-12 columns">
+                  <div id='chitChat' class="msg-wrapper"></div>
+                 </div>
+              </div>
+              
+              <div class="row">
+                <div class="large-12 columns">
+                  <label>Name
+                    <input type="text" id='userName' placeholder='Name' />
+                  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="large-12 columns">
+                  <label>Message
+                    <textarea id='userMess' placeholder='Message'></textarea>
+                  </label>
+                </div>
+              </div>
+            
+            </form>
+      </div>  
+      <div class= "container">
+          <div id="matches"><div>
+        <div id="chat-area">
+            <div id="chat-box"></div>
+            <input id="chat-input">
+            <button id="send-button">Send</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- section 4-->
+
+ <section id="four" style="min-height: 840px">
+      <p class="black">Look through the video and tell us what you like!</p>
     <br>
     <br>
-  <div class="container">
-    <div id="four">
-    </div>
+  <div class="row">
+
+      <div id='container' class="col-md-6">
+
+          <div id='pics' class='child'>Hobbies
+          </div>  
+
+          <div id='vids' class='child'>videos
+          </div>      
+      </div>
   </div>
 
-  </section>
-  <section id="three" style="min-height: 600px; background-color: yellow;">              
-    <div class="container" id="Matches">
-      <h3>Chat With Your Matches</h3>
-      <form>
-          <div class="row">
-            <div class="large-12 columns">
-              <div id='chitChat' class="msg-wrapper"></div>
-              <hr />
-             </div>
-          </div>
-          
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Name
-                <input type="text" id='userName' placeholder='Name' />
-              </label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Message
-                <textarea id='userMess' placeholder='Message'></textarea>
-              </label>
-            </div>
-          </div>
-        
-        </form>
-  </div>  
-</section>
-  <!-- section 5-->
+      <!-- section 5-->
 
-  <section id="five" style="min-height: 840px;background:red">      
-    <div class="col-md-8" id="contact-form">
-
-    </div>
-  </section>
-   
-<!-- section 4-->
-
-  <section id="4" style="min-height: 900px;  background-color: green">              
-    <br>
-    <br>
-  <div class="container">
-    <div id="four">
-    </div>
-  </div>
-
-  </section>
-  <!-- section 5-->
-
-  <section id="five" style="min-height: 840px;background:red">      
-    <div class="col-md-8" id="contact-form">
-
-    </div>
-  </section>
-
+      <section id="five" style="min-height: 840px;background:red">  
+      <div class="container">
+        <div id="four">
+                
+        </div>
+      </div>    
+       
+      </section>
        <!-- user modals -->
   <div class="modal fade" tabindex="-1" role="dialog" id="signUp-modal">
     <div class="modal-dialog" role="document">
