@@ -2,8 +2,7 @@ $(document).ready(function(){
 	//making sure our logic is connected
 	console.log("we ready")
 //new api
-
-	
+// $("#show-user").hide();
 //scrolling effect click function
 
   // Initialize Firebase
@@ -19,7 +18,7 @@ $(document).ready(function(){
 
   var database = firebase.database();
   var currentEmail = "";
-  var currentUserName = "";
+  var currentUserName = "hautran193";
   var currentPassword = "";
   var currentLikes = [];
   var likedVideos = [];
@@ -172,7 +171,7 @@ function compare() {
 
       //Appends matches text to matches di
       if(allMatchesDiv.text() !== "") {
-        $("#matches").append(allMatchesDiv);
+        $("#matches").html(allMatchesDiv);
       }
       else {
         $("#matches").text("You have no matches!")
@@ -209,18 +208,19 @@ function combineLikes() {
 };
 
 //When the hobbies are submitted, this function will set the likes in the database.
-function hobbies() {
+function hobbies(button) {
   event.preventDefault();
-  likedHobbies = [];
-  $("input:checkbox[name=newsletter]:checked").each(function() {
-    likedHobbies.push($(this).val());
-  });
-  combineLikes();
+  var hobbieLiked = $(button).val();
+  if(likedHobbies.indexOf(hobbieLiked) === -1) {
+    likedHobbies.push(hobbieLiked);
+    console.log("this")
+    combineLikes();
+  }
 };
 
 //When a video is liked, this function will set the liked video in the database.
   function clickLikeVideo(button) {
-    videoLiked = $(button).attr("data-name");
+    var videoLiked = $(button).attr("data-name");
     if(likedVideos.indexOf(videoLiked) === -1) {
       likedVideos.push(videoLiked);
       combineLikes();
@@ -235,8 +235,8 @@ function hobbies() {
     signIn();
   });
 
-  $(document).on("click", "#submit-hobbies", function() {
-    hobbies();
+  $(document).on("click", ".submit-hobbies", function() {
+    hobbies(this);
   });
 
   $(document).on("click", ".like", function() {
@@ -252,6 +252,8 @@ function hobbies() {
   //Sets the initial chat messages from the database into the chat box, and adds a new message whenever someone sends one
       function getChat(nameButton) {
         $("#chat-box").empty();
+
+        database.ref("chat/" + currentChatId).off("child_added");
         currentChatId = $(nameButton).attr("data-chatId");
         otherUsername = $(nameButton).attr("data-otherUsername");
 
@@ -262,7 +264,7 @@ function hobbies() {
           //Removes first message from database and page if the total number of messages reaches 20
           messageNumber++;
           if(messageNumber > 19) {
-            messageMumber--;
+            messageNumber--;
             database.ref("chat/").once("child_added", function(firstChild) {
               database.ref("chat/" + firstChild.key).remove();
               $("#chat-box").find("div").first().remove();
@@ -287,6 +289,7 @@ function hobbies() {
 //After clicking the send button in the chat area, this function saves the sent message in the database
   function setChat() {
     var message = $("#chat-input").val().trim();
+    $("#chat-input").val("");
     database.ref("chat/" + currentChatId).push({
       username: currentUsername,
       message: message
@@ -308,17 +311,60 @@ function hobbies() {
   	    $("html, body").animate({
   	        scrollTop: $(section).offset().top
   	    });
-	});//ending of click function	
-//ending of document.deay function
-console.log("everything is working")
+	});	
+// ajx call for pixa bay
+     var API_KEY = "6984223-4bc9b90e9945fb3ac039ea14c";
+     var pictureSearched = [];
 
-});
+      function getPictures() {
+      var searchTerm = $("#search-pictures").val();
+      $("#search-pictures").val("");
+      var queryURL = "https://pixabay.com/api/?key=6984223-4bc9b90e9945fb3ac039ea14c&q=" + searchTerm + "&image_type=photo"
+      likedSearches.push(searchTerm);
+      combineLikes();
+      $.ajax({
+      url: queryURL,
+      method: "GET"
+      }).done(function(response) {
+        console.log(response);
+        var newPictures = [];
+        for(var i =0; i < response.hits.length; i++) {
+          newPictures.push(response.hits[i].webformatURL);
+        }; 
+        pictureSearched = newPictures;
+      picturesReady();
+
+      });
+    };
+
+  function picturesReady(){
+    $("#pics").empty();
+
+    for (var i = 0; i < 5; i++){
+          
+    var pictures = $("<img>");
+        pictures.addClass("custom-class");
+
+        pictures.attr("src", pictureSearched[i]);
+
+        
+        $("#pics").append(pictures);
+
+      };
+  };
+    
+     $(document).on("click", "#search-pictures-button", function() {
+      getPictures();
+     });
+
+
+});//ending of document ready function
 //youtube api has to be outside of document ready for some reason!
-
+//youtube api has to be outside of document ready for some reason!
       // 3. This function creates an <iframe> (and YouTube player)
       //    after the API code downloads.
-var videos = ["MXgnIP4rMoI","MloJx8bAcOw", "dQw4w9WgXcQ"]
-
+var videos = []
+var videosTitles = [];
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
       tag.src = "https://www.youtube.com/iframe_api";
@@ -341,11 +387,11 @@ var videos = ["MXgnIP4rMoI","MloJx8bAcOw", "dQw4w9WgXcQ"]
         video.attr("id", videos[i]);
         videoDiv.append(video);
         var newButton = $("<button>Like</button>");
-        newButton.attr("data-name", videos[i]);
+        newButton.attr("data-name", videosTitles[i]);
         newButton.addClass("like");
         newDiv.append(newButton);
         //change the target
-        $("#four").append(newDiv);
+        $("#vids").append(newDiv);
         var player;
         player = new YT.Player(videos[i], {
           height: '390',
@@ -355,120 +401,33 @@ var videos = ["MXgnIP4rMoI","MloJx8bAcOw", "dQw4w9WgXcQ"]
       };
     }
 
-
 //get video function for youtube videos
-var pictures =[];
-    var apiKey = "AIzaSyBozDkvJZnsileIrGeXPDPaY3fZh68r2No";
+var apiKey = "AIzaSyBozDkvJZnsileIrGeXPDPaY3fZh68r2No";
     function getVideos() {
       var searchTerm = $("#search-videos").val();
-      var queryURL = "https://www.googleapis.com/youtube/v3/search?part=id&type=video&key=" + apiKey + "&maxResults=5&q=" + searchTerm
-
+      $("#search-videos").val("");
+      var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&key=" + apiKey + "&maxResults=5&q=" + searchTerm
       $.ajax({
         url: queryURL,
         method: "GET"
       })
       .done(function(response) {
         var videosSearched = [];
+        var videosSearchedTitles = [];
         for(var i =0; i < response.items.length; i++) {
+          console.log(response);
           videosSearched.push(response.items[i].id.videoId);
+          videosSearchedTitles.push(response.items[i].snippet.title);
         }
-        console.log(videosSearched);
         videos = videosSearched;
+        videosTitles = videosSearchedTitles;
         onYouTubeIframeAPIReady();
       });
     };
 
     $(document).on("click", "#search-button", function() {
       getVideos();
-      console.log(getVideos);
     });
-    // // ajx call for pixa bay
-     var API_KEY = "6984223-4bc9b90e9945fb3ac039ea14c";
-     var pictureSearched = [];
-
-      function getPictures() {
-      var searchTerm = $("#search-pictures").val();
-      var queryURL = "https://pixabay.com/api/?key=6984223-4bc9b90e9945fb3ac039ea14c&q=" + searchTerm + "&image_type=photo"
-      likedSearches.push(searchTerm);
-      combineLikes();
-      $.ajax({
-      url: queryURL,
-      method: "GET"
-      }).done(function(response) {
-        var newPictures = [];
-        for(var i =0; i < response.hits.length; i++) {
-          newPictures.push(response.hits[i].webformatURL);
-        }; 
-        pictureSearched = newPictures;
-      picturesReady();
-
-      });
-    };
-
-  function picturesReady(){
-    $("#pics").empty();
-    for (var i = 0; i < 5; i++){
-          
-    var pictures = $("<img>");
-        pictures.addClass("custom-class");
-
-        pictures.attr("src", pictureSearched[i]);
-
-        
-        $("#pics").append(pictures);
-      };
-  };
     
-     $(document).on("click", "#search-pictures", function() {
-      getPictures();
-     });
-
-////make a function for search
-// function search(){
-//     // Clear Results
-//     $('#results').html('');
-//     $('#buttons').html('');
-    
-//     // Get Form Input
-//     q = $('#query').val();
-    
-//     // Run GET Request on API
-//     $.get(
-//         "https://pixabay.com/api/?key=",{
-//             //api querey equal to user input named querey
-//             q: q,
-//             key: '6984032-95d06603c44eafc11c8642d65'},
-//             function(data){
-                                
-//                 // Log Data
-//                 console.log(data);
-                
-//                 $.each(data.items, function(i, item){
-//                     // Get Output
-//                     var output = getOutput(item);
-                    
-//                     // Display Results
-//                     $('#results').append(output);
-//                 });
-//             }
-//     );
-// }
-
-// function getOutput(item){
-//     var type = item.type.photo;
-//     var img = item.imageURL
-    
-//     // Build Output String
-//     var output = '<li>' +
-//     '<div class="listLeft">' +
-//     '<img src="'+img+'">' +
-//     '</div>';
-//         return output;
-//     console.log(output);
-// }
-// $(document).on("click", "#search-pictures", function() {
-//     search();
-//      });
-
 
 

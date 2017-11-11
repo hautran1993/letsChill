@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <!-- home page -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Youtube App</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+  <!-- home page -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Youtube App</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Buttons/2.0.0/css/buttons.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body>
   <!-- header -->
@@ -102,50 +108,55 @@
     <!--show userr this once they are logged in  -->
   <!--section 2-->
 <div id="show-user">
-      <section id="two" style="min-height: 840px">
-        < <form>
+        <section id="two" style="min-height: 840px">
+      <p>Look through the hobbies and tell us what you like!</p>
+    <form>
+      <div id="hobbies">
         <div>
-          <input type="checkbox" name="running" value="newsletter">
-          <label for="running">Running</label>
-          <img class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
+          <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="running">
+          <img class="acts" class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
         </div>
         <div>
-          <input type="checkbox" name="singing" value="newsletter">
-          <label for="singing">Singing</label>
-          <img class="irc_mi" src="http://www.pngmart.com/files/3/Singing-PNG-Photos-279x279.png" alt="Image result for singing translucent background"?>
+          <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="singing">
+          <img class="acts" class="irc_mi" src="http://www.pngmart.com/files/3/Singing-PNG-Photos-279x279.png">
         </div>
         <div>
-           <input type="checkbox" name="reading" value="newsletter">
-           <label for="reading">Reading</label>
-           <img class="irc_mi" src="https://www.tsl.texas.gov/sites/default/files/public/tslac/ld/projects/trc/2010/clipartbw/images/lyinggirl_450g.gif">
-        <div>
-           <input type="checkbox" name="dancing" value="newsletter">
-           <label for="dancing">Dancing</label>
-           <img class="irc_mi" src="http://3p76s62sopuo2hcrwa1rxucp.wpengine.netdna-cdn.com/wp-content/uploads/2016/08/dancers.png">
+          <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="reading">
+          <img class="acts" class="irc_mi" src="https://www.tsl.texas.gov/sites/default/files/public/tslac/ld/projects/trc/2010/clipartbw/images/lyinggirl_450g.gif">
+          <div>
+            <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="dancing">
+            <img class="acts" class="irc_mi" src="http://3p76s62sopuo2hcrwa1rxucp.wpengine.netdna-cdn.com/wp-content/uploads/2016/08/dancers.png">
+          </div>
         </div>
-        </div>
-        <div>
-          <button type="submit">This is what I enjoy!</button>
-        </div>
-      </form>
-      </section>
+      </div>
+    </form>
+  </section>
       <!-- section 3-->
       <section style="min-height: 900px;  background-color: green">              
         <br>
         <br>
       <div class="container">
-        <h2>pictures and videos goes here
-        </h2>
+        <p style="font:white; font-size: 25px; text-align: center">All users searches will be compared with other users' searches!</p>
         <div id="pix-bay">
         </div>
       </div>
       <input type="text" id="search-videos">testing
             <button id="search-button">Search</button>
             <br>
-            <!--pia bay sear goes here  -->
-       <input type="text" id="search-pictures">testing
-            <button id="search-pictures">Search</button>      
+    <input type="text" id="search-pictures">testing
+    <button id="search-pictures-button">Search</button>  
 
+    <div class="panel-body">
+          <div class="row main-content">     
+              
+            <div id="pics" class="col-md-6">Pics
+            </div>  
+
+            <div id="vids" class="col-md-6">videos
+            </div> 
+
+          </div>
+     </div>
       </section>
       <section id="three" style="min-height: 600px; background-color: yellow;">              
         <div class="container" id="Matches">
@@ -154,29 +165,6 @@
             <button id="compare">compare</button>
           <div id="matches">
           </div>
-          <form>
-              <div class="row">
-                <div class="large-12 columns">
-                  <div id='chitChat' class="msg-wrapper"></div>
-                 </div>
-              </div>
-              
-              <div class="row">
-                <div class="large-12 columns">
-                  <label>Name
-                    <input type="text" id='userName' placeholder='Name' />
-                  </label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="large-12 columns">
-                  <label>Message
-                    <textarea id='userMess' placeholder='Message'></textarea>
-                  </label>
-                </div>
-              </div>
-            
-            </form>
       </div>  
       <div class= "container">
           <div id="matches"><div>
@@ -194,28 +182,39 @@
       <p class="black">Look through the video and tell us what you like!</p>
     <br>
     <br>
-  <div class="row">
 
-      <div id='container' class="col-md-6">
-
-          <div id='pics' class='child'>Hobbies
-          </div>  
-
-          <div id='vids' class='child'>videos
-          </div>      
-      </div>
-  </div>
 
       <!-- section 5-->
 
-      <section id="five" style="min-height: 840px;background:red">  
-      <div class="container">
-        <div id="four">
-                
-        </div>
-      </div>    
-       
-      </section>
+ <section id="five" style="min-height: 840px;">
+    <div class="col-md-8" id="contact-form">
+      <h4>Brad Hemmerick
+        <img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAqrAAAAJGUwMjFiZGY1LWE1MzItNDU1OC1hZjdkLWU2YjAxZDU2ZjUzZQ.jpg"
+          height="128" width="128">
+      </h4>
+      <p>My name is Brad Hemmerick. I grew up in Long Island New York, and moved to Houston Texas when I was fifteen. I began
+        practing musical theatre when I was four years old, practicing singing, acting, and dancing. I started coding my
+        senior year of High School, briefly learning html and css. I am currently a student at the UT Houston Coding Bootcamp
+        in order to become a real coder.</p>
+        <a class="github-button" href="https://github.com/BradHemmerick" aria-label="Brad Hemmerick on GitHub">Brad Hemmerick</a>
+      <h4>Hau Tran
+        <img alt="" class="avatar width-full rounded-2" height="128" src="https://avatars1.githubusercontent.com/u/31061720?s=460&amp;v=4"
+          width="128">
+      </h4>
+      <p>My interest in coding started when I realize that a was genius who can create anything he desires through hardwork
+        and dedication. To my understanding of coding so far is that is very possible with work god like work ethics. I want
+        to use my creation to help the lower class build entrepreneur ship through technology. I'm a headbanger at heart,
+        and a wild dancer with minimal rhythm. I enjoy going out to festivals and dance my heart out. My true passion is
+        to travel the world on foot, and helping the world out with any mean possible. I want to use my brain to create helpful
+        ideas for the world while I travel. Hopefully connecting the poor and the rich, and making that margin alot more
+        tiny.</p>
+        <a class="github-button" href="https://github.com/hautran1993" aria-label="Hau Tran on GitHub">Hau Tran</a>
+      <h4>Michael Nguyen</h4>
+      <p></p>
+      <a class="github-button" href="https://github.com/michaelnguyen55" aria-label="Michael Nguyen on GitHub">Michael Nguyen</a>
+    </div>
+  </section>
+</div>
        <!-- user modals -->
   <div class="modal fade" tabindex="-1" role="dialog" id="signUp-modal">
     <div class="modal-dialog" role="document">
@@ -276,7 +275,6 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
-</div>
 
 
 <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
