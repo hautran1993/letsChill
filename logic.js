@@ -62,6 +62,8 @@ function signUp() {
 //When clicking the Login button after entering the required fields, 
 //this function checks if the values inputted are the same as in the database.
 //If they are the same, the user will be logged in and the page will be switched
+//get authentication weather suer exists
+//look up firebase auth.
 function signIn() {
   var username = $("#login-user-name").val();
   var password = $("#login-user-password").val();
@@ -75,8 +77,10 @@ function signIn() {
       if(snapshot.child("users/" + username + "/password").val() === currentPassword) {
         $('#login-modal').modal('toggle');
         // alert("You have been logged in!");
+        $("#sign-up").text("Welcome: " + username);
         $("#front-page").hide();
         $("#show-user").show();
+        $("#log-in").hide();
         currentEmail = snapshot.child("users/" + username + "/email").val();
         if(snapshot.child("users/" + username + "/likes").exists()) {
           currentLikes = snapshot.child("users/" + username + "/likes").val();
@@ -107,12 +111,12 @@ function signIn() {
       }
       else{
         //This shows if the password entered is incorrect.
-        console.log("Password is incorrect.");
+        $(".modal-body").append("Password is incorrect.");
       };
     }
     else {
       //This shows if the username entered does not exist in the database.
-      console.log("That username does not exist.");
+      $(".modal-body").append("That username does not exist.");
     };
   });
 };
@@ -148,7 +152,7 @@ function compare() {
           };
           similar = currentLikes.compare(otherUserLikes);
           //Change number here to compare how many likes should be a match.
-          if(similar.length > 2) {
+          if(similar.length > 5) {
             var newMatchDiv = $("<div>");
             var usernameSpan = $("<span>");
 
@@ -344,8 +348,14 @@ function hobbies(button) {
           
     var pictures = $("<img>");
         pictures.addClass("custom-class");
-
         pictures.attr("src", pictureSearched[i]);
+        //new button
+        var newButton = $("<button>Like</button>");
+        newButton.attr("data-name",pictureSearched[i]);
+
+        $("#pics").append(pictures);
+        $("#pics").append(newButton);
+
 
         
         $("#pics").append(pictures);
@@ -363,8 +373,8 @@ function hobbies(button) {
 //youtube api has to be outside of document ready for some reason!
       // 3. This function creates an <iframe> (and YouTube player)
       //    after the API code downloads.
-var videos = []
-var videosTitles = [];
+var videos = ["DODLEX4zzLQ",]
+var videosTitles = ["WATCH and TRY TO STOP LAUGHING - Super FUNNY VIDEOS compilation",];
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
       tag.src = "https://www.youtube.com/iframe_api";

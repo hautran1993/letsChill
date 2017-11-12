@@ -3,23 +3,23 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <!-- home page -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Youtube App</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Buttons/2.0.0/css/buttons.css">
-  <link rel="stylesheet" href="style.css">
-  <!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-</head>
-<body>
+  <head>
+    <!-- home page -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Youtube App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Buttons/2.0.0/css/buttons.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </head>
+
+  <body>
   <!-- header -->
-<div id="front-page">
         <header>
-                <nav class="navbar navbar-inverse navbar-fixed-top">
+                <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #9900cc">
                         <div class="container-fluid">
                           <div class="navbar-header">
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -27,25 +27,25 @@
                               <span class="icon-bar"></span>
                               <span class="icon-bar"></span>                        
                            </button>
-                            <a class="navbar-brand" href="#">Lets Chill</a>
+                            <a style="color: white" class="navbar-brand" href="#">Lets Chill</a>
                           </div>
                           <div class="collapse navbar-collapse" id="myNavbar">
                             <ul class="nav navbar-nav">
-                              <li class="active"><a href="#one">Home Page</a></li>
-                              <li><a href="#two">Hobbies</a></li>
-                              <li><a href="#four">Videos</a></li>
-                              <li><a href="#three">People Of Intrest</a></li>
+                              <li class="active"><a style="color: white" href="#one">Home Page</a></li>
+                              <li><a style="color: white" href="#two">Hobbies</a></li>
+                              <li><a style="color: white" href="#three">Videos</a></li>
+                              <li><a style="color: white" href="#four">People Of Intrest</a></li>
                             </ul>
 
                             <ul class="nav navbar-nav navbar-right">
-                              <li><a data-toggle="modal" data-target="#signUp-modal"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
-                              <li><a data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                              <li id="sign-up"><a style="color: white" data-toggle="modal" data-target="#signUp-modal"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                              <li id="log-in"><a style="color: white" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
                             </ul>
                           </div>
                         </div>
                       </nav>
                 </header>
-
+<div id="front-page">
   <!--section 1-->
   <section id="one" style="min-height: 840px">
       <br>
@@ -53,7 +53,6 @@
       <br>
     <div class="container"> 
      <h2 style="color: white">Welcome, People of the world</h2>
-     <hr>
 
     <div class=container>
          <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -103,36 +102,76 @@
    </div>    
   </section>
   <!--ending of front page  -->
-</div> 
+  </div> 
  <!--ending of first code  -->
     <!--show userr this once they are logged in  -->
   <!--section 2-->
-<div id="show-user">
-        <section id="two" style="min-height: 840px">
-      <p>Look through the hobbies and tell us what you like!</p>
+  <div id="show-user">
+    <section id="two" style="min-height: 800px">  
     <form>
-      <div id="hobbies">
-        <div>
-          <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="running">
-          <img class="acts" class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
-        </div>
-        <div>
-          <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="singing">
-          <img class="acts" class="irc_mi" src="http://www.pngmart.com/files/3/Singing-PNG-Photos-279x279.png">
-        </div>
-        <div>
-          <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="reading">
-          <img class="acts" class="irc_mi" src="https://www.tsl.texas.gov/sites/default/files/public/tslac/ld/projects/trc/2010/clipartbw/images/lyinggirl_450g.gif">
-          <div>
+
+  <div style="center" class="row">
+    <h2 class="text-center" style ="color: white">Click on Hobbies Buttons to Match With Other Users'</h2>
+    <br>
+    <div class="col-sm-4">
+      
+            <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="running">
+            <img class="acts" class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
+          
+
+          
+            <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="singing">
+            <img class="acts" class="irc_mi" src="http://www.pngmart.com/files/3/Singing-PNG-Photos-279x279.png">
+          
+
+          
+            <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="reading">
+            <img class="acts" class="irc_mi" src="https://www.tsl.texas.gov/sites/default/files/public/tslac/ld/projects/trc/2010/clipartbw/images/lyinggirl_450g.gif">
+          
+    </div>
+        
+
+    <div class="col-sm-4">
+      
             <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="dancing">
             <img class="acts" class="irc_mi" src="http://3p76s62sopuo2hcrwa1rxucp.wpengine.netdna-cdn.com/wp-content/uploads/2016/08/dancers.png">
-          </div>
-        </div>
-      </div>
-    </form>
-  </section>
+            
+
+          
+            <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="hiking">
+            <img class="acts" class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
+          
+
+          
+            <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="Gaming">
+            <img class="acts" class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
+          
+    </div>
+
+
+    <div class="col-sm-4">
+            
+              <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="dancing">
+              <img class="acts" class="irc_mi" src="http://3p76s62sopuo2hcrwa1rxucp.wpengine.netdna-cdn.com/wp-content/uploads/2016/08/dancers.png">
+            
+
+            
+            <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="hiking">
+            <img class="acts" class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
+            
+
+          
+            <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="Gaming">
+            <img class="acts" class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
+          
+    </div>
+
+  </div>
+
+      </form>
+      </section>
       <!-- section 3-->
-      <section style="min-height: 900px;  background-color: green">              
+      <section id ="three" style="min-height: 900px;  background-color: green">              
         <br>
         <br>
       <div class="container">
@@ -140,15 +179,23 @@
         <div id="pix-bay">
         </div>
       </div>
-      <input type="text" id="search-videos">testing
+
+      <div class="row">
+        <div class="col-md-6 ">
+            <input type="text" id="search-pictures">
+            <button id="search-pictures-button">Search</button>
+        </div>
+
+        <div class="col-md-6 offset-md-6">
+            <input type="text" id="search-videos">
             <button id="search-button">Search</button>
-            <br>
-    <input type="text" id="search-pictures">testing
-    <button id="search-pictures-button">Search</button>  
+        </div>
+      </div>
 
     <div class="panel-body">
-          <div class="row main-content">     
-              
+          <div class="row main-content">
+
+
             <div id="pics" class="col-md-6">Pics
             </div>  
 
@@ -158,11 +205,16 @@
           </div>
      </div>
       </section>
-      <section id="three" style="min-height: 600px; background-color: yellow;">              
+      <section id="three" style="min-height: 600px; background-color: yellow;"> 
+
+          <h3 class="text-center" style="color: white">Chat With Your Matches</h3>
+          <br>
+          <p style="font-size: 15px; text-align: center">If you're ready hit the compare button to see your matches! Then click on their username to start chatting with them. Have Fun!</p>
+
         <div class="container" id="Matches">
-          <h3>Chat With Your Matches</h3>
           <div id="people"></div>
-            <button id="compare">compare</button>
+            <button class="button button-primary button-box button-giant button-longshadow-right" id="compare ">compare</button>
+
           <div id="matches">
           </div>
       </div>  
@@ -178,12 +230,13 @@
 
     <!-- section 4-->
 
- <section id="four" style="min-height: 840px">
-      <p class="black">Look through the video and tell us what you like!</p>
+ <section id="four" style="min-height: 840px; color: red">
+      <p style="black">Look through the video and tell us what you like!</p>
     <br>
     <br>
 
-
+  </section>
+</div>
       <!-- section 5-->
 
  <section id="five" style="min-height: 840px;">
@@ -214,7 +267,7 @@
       <a class="github-button" href="https://github.com/michaelnguyen55" aria-label="Michael Nguyen on GitHub">Michael Nguyen</a>
     </div>
   </section>
-</div>
+
        <!-- user modals -->
   <div class="modal fade" tabindex="-1" role="dialog" id="signUp-modal">
     <div class="modal-dialog" role="document">
