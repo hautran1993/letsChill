@@ -46,6 +46,11 @@ h4, p {
     margin-right: 0px;
 }
 
+#chat-top {
+  background-image: url("assets/images/ny.png");
+  margin: 0px;
+}
+
 /*#hobbies {
     position: relative;
     left: 14%;
@@ -156,6 +161,7 @@ iframe {
   -ms-transition: all 0.20s ease-in-out;
   -o-transition: all 0.20s ease-in-out;
 }
+
 ​
 #myNavbar a:hover {
   background-color: #cc7fe5;
@@ -174,7 +180,6 @@ iframe {
 }
 ​
 #one {
-/* background-image: url("assets/images/connect.png");*/
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -227,6 +232,11 @@ iframe {
     font-weight: bold;
     color:  #1a75ff;
     cursor: pointer;
+ }   
+
+#chat-top {
+    height: 570px;
+    width: 75%;
 }
 /*<------------------------------End Chat------------------------------>*/
 /*<-------------------------Media Queries------------------------->*/
