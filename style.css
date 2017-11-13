@@ -29,6 +29,18 @@ h4, p {
     border-radius: 20px 80px 20px 80px;
 }
 
+.acts {
+  margin-top: 50px;
+  height: 130px;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.custom-class {
+  border: solid purple 5px;
+  margin-left: -50px;
+}
+
 .row {
     margin-left: 0px;
     margin-right: 0px;
@@ -46,16 +58,15 @@ h4, p {
 #home {
     background-image: url(assets/images/welcome.jpeg);
     background-position: center;
-    background-repeat: no-repeat;
-    width: 84%;
+    /* background-repeat: no-repeat; */
+    width: 70%;
     height: 600px;
     position: relative;
-    left: 85px;
-    top: 80px;
-    padding: solid red 5px;
-    border-radius: 20px 80px 20px 80px;
-    box-shadow: 7px 7px 10px #888888;
-}    
+    left: 190px;
+    top: 120px;
+    border-radius: 200px 70px 200px 70px;
+    box-shadow: 7px 5px 10px #888888;
+}  
 
 #myCarousel {
     width: 750px; 
@@ -64,7 +75,21 @@ h4, p {
     left: 170px;
     padding: solid red 5px;
     border-radius: 20px 80px 20px 80px;
-    box-shadow: 7px 7px 10px #888888;
+    box-shadow: 10px 5px 10px 2px #888888;
+}
+
+#line {
+    margin-left: 93%;
+}
+
+#recent {
+  margin-left: 93%;
+  margin-right: 0px;
+}
+
+#friends {
+  margin-left: 93%;
+  margin-right: 0px;
 }
 
 .carousel-control.right {
@@ -200,7 +225,7 @@ iframe {
 ​/*<------------------------------Chat------------------------------>*/
 .usernameSpan, .usernameSpanHome {
     font-weight: bold;
-    color: #9900cc;
+    color:  #1a75ff;
     cursor: pointer;
 }
 /*<------------------------------End Chat------------------------------>*/

@@ -34,7 +34,7 @@
             <li id="welcome-nav" class="active"><a style="color: white" href="#one">Welcome</a></li>
             <li id="home-nav" class="active"><a style="color: white" href="#home">Home Page</a></li>
             <li id="hobbies-nav"><a style="color: white" href="#two">Hobbies</a></li>
-            <li id="videos-nav"><a style="color: white" href="#three">Videos</a></li>
+            <li id="videos-nav"><a style="color: white" href="#three">Media</a></li>
             <li id="chat-nav"><a style="color: white" href="#four">Chat</a></li>
             <li id="developers-nav"><a style="color: white" href="#five">Developers</a></li>
           </ul>
@@ -49,7 +49,7 @@
   </header>
   <div id="front-page">
     <!--section 1-->
-    <section id="one" style="min-height: 840px">
+    <section id="one">
       <br>
       <br>
       <br>
@@ -107,10 +107,16 @@
   <!--show user this once they are logged in  -->
   <!--section 2-->
   <div id="show-user">
+       <!--home-->
     <section id="home">
-    <h2>welcome</h2>
-
-    </section>
+      <div  class="container">
+          <p id="recent" style="color: blue; font-size: 30px">Recent Chats</p>
+          <hr id="line" style= "width: 50px">
+        <div id="friends" class="row">
+         <div id="previous-people"></div>
+        </div>
+      </div>
+    </section>   
 
     <section id="two" style="min-height: 800px">  
       <form>
@@ -118,7 +124,7 @@
         <div style="text-align: center" class="row">
           <h2 class="text-center" style ="color: white">Click on Hobbies Buttons to Match With Other Users'</h2>
           <br>
-          <div class="col-sm-4">
+          <div id="icons" class="col-sm-4">
 
             <div>
               <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="running">
@@ -141,18 +147,18 @@
           <div class="col-sm-4">
 
             <div>
-              <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="dancing">
-              <img class="acts" class="irc_mi" src="http://3p76s62sopuo2hcrwa1rxucp.wpengine.netdna-cdn.com/wp-content/uploads/2016/08/dancers.png">
+              <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="Boarding">
+              <img class="acts" class="irc_mi" src="assets/images/boarding.png">
             </div>
 
             <div>
-              <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="hiking">
-              <img class="acts" class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
+              <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="swimming">
+              <img class="acts" class="irc_mi" src="assets/images/swimming.png">
             </div>
 
             <div>
-              <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="Gaming">
-              <img class="acts" class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
+              <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="biking">
+              <img class="acts" class="irc_mi" src="assets/images/biking.png">
             </div>
 
           </div>
@@ -167,12 +173,12 @@
 
             <div>
               <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="hiking">
-              <img class="acts" class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
+              <img class="acts" class="irc_mi" src="assets/images/rock.png">
             </div>
 
             <div>
               <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="Gaming">
-              <img class="acts" class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
+              <img class="acts" class="irc_mi" src="assets/images/gamming.jpeg">
             </div>
 
           </div>
@@ -181,9 +187,8 @@
 
       </form>
     </section>
-    <!-- section 3-->
-        <!-- section 3-->
-    <section id ="three" style="min-height: 900px;  background-color: green">              
+      <!-- section 3-->
+    <section id ="three">              
       <br>
       <br>
       <div class="container">
@@ -218,7 +223,8 @@
         </div>
       </div>
     </section>
-    <!--End section 3-->
+
+    <!--End section 4-->
     <section id="four" style="min-height: 600px; background-color: yellow;"> 
 
       <h3 class="text-center" style="color: white">Chat With Your Matches</h3>
@@ -226,15 +232,14 @@
       <p style="font-size: 15px; text-align: center">If you're ready hit the compare button to see your matches! Then click on their username to start chatting with them. Have Fun!</p>
 
       <div class="container" id="Matches">
-        <div id="previous-people"></div>
         <div id="people"></div>
-        <button class="button button-glow button-rounded button-raised button-primary" class="button button-primary button-box button-giant button-longshadow-right" id="compare ">compare</button>
+        <button class="button button-primary button-box button-giant button-longshadow-right" id="compare">compare</button>
       </div>  
       <div class= "container">
         <div id="chat-area">
           <div id="chat-box"></div>
           <input id="chat-input">
-          <button class="button button-glow button-rounded button-raised button-primary" id="send-button">Send</button>
+          <button id="send-button">Send</button>
         </div>
       </div>
     </section>
