@@ -169,28 +169,27 @@ function login() {
           
           //Puts in users that have messaged you before
           if(snapshot.child("users/" + username + "/usersChatWith").exists()) {
-
             var allMatchesDiv = $("<div>");
-            snapshot.child("users/" + username + "/usersChatWith").forEach(function(child) {
-              var newMatchDiv = $("<div>");
-              var usernameSpan = $("<span>");
+            database.ref("users/" + username + "/usersChatWith").on("child_added", function(snapshot) {
+              
+                var newMatchDiv = $("<div>");
+                var usernameSpan = $("<span>");
 
-              var nameSort = [currentUsername, child.val()]
-              nameSort = nameSort.sort();
-              nameSort = nameSort.join("");
+                var nameSort = [currentUsername, snapshot.val()]
+                nameSort = nameSort.sort();
+                nameSort = nameSort.join("");
 
-              usernameSpan.attr("data-chatId", nameSort);
-              usernameSpan.attr("data-otherUsername", child.val())
-              usernameSpan.text(child.val());
-              usernameSpan.addClass("usernameSpanHome");
-              newMatchDiv.append(usernameSpan);
+                usernameSpan.attr("data-chatId", nameSort);
+                usernameSpan.attr("data-otherUsername", snapshot.val())
+                usernameSpan.text(snapshot.val());
+                usernameSpan.addClass("usernameSpanHome");
+                newMatchDiv.append(usernameSpan);
 
-              $(allMatchesDiv).append(newMatchDiv);
+                $(allMatchesDiv).append(newMatchDiv);
 
-            //Div to put in users that have message you before
-            $("#previous-people").html(allMatchesDiv);
-          });
-
+                //Div to put in users that have message you before
+                $("#previous-people").html(allMatchesDiv);
+              });
           };
         }
         else{
@@ -236,7 +235,7 @@ function compare() {
           };
           similar = currentLikes.compare(otherUserLikes);
           //Change number here to compare how many likes should be a match.
-          if(similar.length > 5) {
+          if(similar.length > 2) {
             var newMatchDiv = $("<div>");
             var usernameSpan = $("<button class='btn btn-danger'>");
 
@@ -368,7 +367,7 @@ function picturesReady() {
     pictures.addClass("custom-class");
     pictures.attr("src", pictureSearched[i]);
     //new button
-    var newButton = $("<button class='like-image'>Like</button>");
+    var newButton = $("<button class='like-image; btn btn-danger'>Like</button>");
     newButton.attr("data-name", pictureSearched[i]);
 
     $("#pics").append(pictures);
@@ -493,8 +492,8 @@ $(document).on("click", ".usernameSpanHome", function() {
 //youtube api has to be outside of document ready for some reason!
 // 3. This function creates an <iframe> (and YouTube player)
 //    after the API code downloads.
-var videos = ["DODLEX4zzLQ"]
-var videosTitles = ["WATCH and TRY TO STOP LAUGHING - Super FUNNY VIDEOS compilation"];
+var videos = []
+var videosTitles = [];
 // 2. This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
@@ -517,7 +516,7 @@ function onYouTubeIframeAPIReady() {
     video.attr("id", videos[i]);
     videoDiv.append(video);
 
-    var newButton = $("<button>Like</button>");
+    var newButton = $("<button class='btn btn-danger'>Like</button>");
     newButton.attr("data-name", videosTitles[i]);
     newButton.addClass("like");
     newDiv.append(newButton);
