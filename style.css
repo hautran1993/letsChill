@@ -1,13 +1,26 @@
-h4, p {
-  color: white;
+p {
+    color: black;
+    font-family: "Times New Roman", Georgia, Serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+h1,h2,h3,h4 {
+    color: black;
+    font-family: "Times New Roman", Georgia, Serif;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 26.4px;
 }
 ​
 ​
 ​
 /*<-------------------------Welcome Page Carousel------------------------->*/
-.custom-class{
-  padding: 5px;
-}
 ​
 .carousel-control {
   border: 10px 50px 10px 10px;
@@ -39,16 +52,16 @@ h4, p {
 .custom-class {
   border: solid purple 5px;
   margin-left: -50px;
+  padding: 5px;
+  width: 100%;
+  height: 60%;
+  margin-left: 17px;
+
 }
 
 .row {
     margin-left: 0px;
     margin-right: 0px;
-}
-
-#chat-top {
-  background-image: url("assets/images/ny.png");
-  margin: 0px;
 }
 
 /*#hobbies {
@@ -147,32 +160,12 @@ iframe {
 #pics {
   padding: 5px;
 }
-/*<-------------------------End PixaBay Pictures------------------------->*/
-​
-​
-/*<-------------------------Navbar------------------------->*/
-.active {
-  pointer-events: none;
-}
-​
-#myNavbar a {
-  -webkit-transition: all 0.20s ease-in-out;
-  -moz-transition: all 0.20s ease-in-out;
-  -ms-transition: all 0.20s ease-in-out;
-  -o-transition: all 0.20s ease-in-out;
-}
 
-​
-#myNavbar a:hover {
-  background-color: #cc7fe5;
-  cursor: pointer;
+.like-image {
+  margin: 15px;
+
 }
-​
-#myNavbar a:active {
-  background-color: #7a00a3;
-}
-/*<-------------------------End Navbar------------------------->*/
-​
+/*<-------------------------End PixaBay Pictures------------------------->*/
 ​
 /*<------------------------------Page Sections------------------------------>*/
 #two, #three, #four, #five {
@@ -206,6 +199,7 @@ iframe {
   height: 7%;
   width: 7%;
 }
+
 .button-circle.button-giant, .button-box.button-giant, .button-square.button-giant{
   width: 112px;
 }
@@ -214,6 +208,7 @@ iframe {
   border-color: pink;
   background: pink;
 }
+
 /*<------End Section Two Hobbies Buttons------>*/
 ​
 #five {
@@ -227,38 +222,109 @@ iframe {
 /*<------------------------------End Page Sections------------------------------>*/
 ​
 ​
-​/*<------------------------------Chat------------------------------>*/
+/*<------------------------------Chat------------------------------>*/
 .usernameSpan, .usernameSpanHome {
-    font-weight: bold;
-    color:  #1a75ff;
-    cursor: pointer;
- }   
+  font-weight: bold;
+  color: #9900cc;
+  cursor: pointer;
+}
 
 #chat-top {
     height: 570px;
     width: 75%;
+    background-image: url("assets/images/ny.png");
+    margin: 0px;
+}
+
+#chat-box {
+  margin-top: 10px;
+  border: 2px solid #1a75ff;
+  border-radius: 50px;
+  max-height: 500px;
+  overflow: auto;
+  padding: 25px;
+  margin-bottom: 10px;
+}
+
+.current-user-message, .other-user-message {
+  max-width: 55%;
+  min-width: 30%;
+  min-height: 60px;
+  border-radius: 15px;
+  margin: 5px;
+  padding: 8px;
+  overflow: auto;
+  clear: both;
+}
+
+.current-user-message {
+  float: right;
+  background-color: #1a75ff;
+  color: white;
+}
+
+.other-user-message {
+  float: left;
+  background-color: #f8ffb2;
 }
 /*<------------------------------End Chat------------------------------>*/
-/*<-------------------------Media Queries------------------------->*/
-@media screen and (max-width: 640px) {
-  .video-div {
-    width: 100%;
-  }
+
+
+/*<-------------------------Navbar------------------------->*/
+#myNavbar a {
+  color: white;
+  transition: all 0.23s ease-in-out;
+  -webkit-transition: all 0.20s ease-in-out;
+  -moz-transition: all 0.20s ease-in-out;
+  -ms-transition: all 0.20s ease-in-out;
+  -o-transition: all 0.20s ease-in-out;
 }
-​
+
+#myNavbar a:hover {
+  background-color: #75acff;
+  cursor: pointer;
+}
+
+#myNavbar a:active {
+  background-color: #1251b2;
+}
+
+.active1 {
+  background-color: #1251b2;
+  pointer-events: none;
+}
+/*<-------------------------End Navbar------------------------->*/
+
+
+
+
+ /*<-------------------------Media Queries------------------------->*/
 @media only screen and (max-width: 768px) {
-  section{
-    width: 100%
-  }
-  .video-div {
-    width: 100%;
-  }
-  #myCarousel {
-    width: 100%
-  }
+    section{
+      width: 100%
+    }
+
+    iframe{
+        width: 90%;
+    }
+
+    .video-div {
+      width: 100%;
+    }
+
+    #myCarousel {
+      width: 100%;
+    }
+
 }
+
 @media screen and (max-width: 640px) {
-  .video-div {
-    width: 100%;
-  }
+    .video-div {
+      width: 100%;
+    }
+    iframe{
+        width: 90%;
+    }
 }
+
+
