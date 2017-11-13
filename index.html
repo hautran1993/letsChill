@@ -3,90 +3,91 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <!-- home page -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Youtube App</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Buttons/2.0.0/css/buttons.css">
-    <link rel="stylesheet" href="style.css">
-    <!-- Place this tag in your head or just before your close body tag. -->
+<head>
+  <!-- home page -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Youtube App</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Buttons/2.0.0/css/buttons.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
   <!-- header -->
-        <header>
-                <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #9900cc">
-                        <div class="container-fluid">
-                          <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                              <span class="icon-bar"></span>
-                              <span class="icon-bar"></span>
-                              <span class="icon-bar"></span>                        
-                           </button>
-                            <a style="color: white" class="navbar-brand" href="#">Lets Chill</a>
-                          </div>
-                          <div class="collapse navbar-collapse" id="myNavbar">
-                            <ul class="nav navbar-nav">
-                              <li class="active"><a style="color: white" href="#one">Home Page</a></li>
-                              <li><a style="color: white" href="#two">Hobbies</a></li>
-                              <li><a style="color: white" href="#three">Videos</a></li>
-                              <li><a style="color: white" href="#four">People Of Intrest</a></li>
-                            </ul>
+  <header>
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #1a75ff">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a style="color: white" class="navbar-brand" href="#">Lets Chill</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li id="welcome-nav" class="active"><a style="color: white" href="#one">Welcome</a></li>
+            <li id="home-nav" class="active"><a style="color: white" href="#home">Home Page</a></li>
+            <li id="hobbies-nav"><a style="color: white" href="#two">Hobbies</a></li>
+            <li id="videos-nav"><a style="color: white" href="#three">Videos</a></li>
+            <li id="chat-nav"><a style="color: white" href="#four">Chat</a></li>
+            <li id="developers-nav"><a style="color: white" href="#five">Developers</a></li>
+          </ul>
 
-                            <ul class="nav navbar-nav navbar-right">
-                              <li id="sign-up"><a style="color: white" data-toggle="modal" data-target="#signUp-modal"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
-                              <li id="log-in"><a style="color: white" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </nav>
-                </header>
-<div id="front-page">
-  <!--section 1-->
-  <section id="one" style="min-height: 840px">
+          <ul class="nav navbar-nav navbar-right">
+            <li id="sign-up-nav"><a style="color: white" data-toggle="modal" data-target="#sign-up-modal"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+            <li id="login-nav"><a style="color: white" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div id="front-page">
+    <!--section 1-->
+    <section id="one" style="min-height: 840px">
       <br>
       <br>
       <br>
-    <div class="container"> 
-     <h2 style="color: white">Welcome, People of the world</h2>
+      <div class="container"> 
+       <h2 style="color: white">Welcome, People of the world</h2>
 
-    <div class=container>
          <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
+          <!-- Indicators -->
 
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+          </ol>
 
-      <!-- Wrapper for slides -->
+          <!-- Wrapper for slides -->
           <div class="carousel-inner">
-              <div class="item active carousel-img">
-                <img src="assets/images/rock.jpeg" alt="climbing">
-                <div class="carousel-caption">
-                  <h3>Find People with the Same Interest As You</h3>
-                  <p></p>
-                </div>
+            <div class="item active carousel-img">
+              <img src="assets/images/rock.jpeg" alt="climbing">
+              <div class="carousel-caption">
+                <h3>Find People with the Same Interest As You</h3>
+                <p></p>
               </div>
+            </div>
 
-              <div class="item carousel-img">
-                <img src="assets/images/unite.jpeg" alt="dance">
-                <div class="carousel-caption ">
-                  <h3>Connect With People From All Over</h3>
-                </div>
+            <div class="item carousel-img">
+              <img src="assets/images/unite.jpeg" alt="dance">
+              <div class="carousel-caption ">
+                <h3>Connect With People From All Over</h3>
               </div>
+            </div>
 
-              <div class="item carousel-img">
-                <img src="assets/images/friends.jpeg" alt="New York">
-                <div class="carousel-caption">
-                  <h3>Discover New Friends</h3>
-                </div>
+            <div class="item carousel-img">
+              <img src="assets/images/friends.jpeg" alt="New York">
+              <div class="carousel-caption">
+                <h3>Discover New Friends</h3>
               </div>
+            </div>
           </div>
 
           <!-- Left and right controls -->
@@ -98,82 +99,93 @@
             <span class="glyphicon glyphicon-chevron-right"></span>
             <span class="sr-only">Next</span>
           </a>
-        </div>  
-   </div>    
-  </section>
-  <!--ending of front page  -->
+        </div>     
+    </section>
+    <!--ending of front page  -->
   </div> 
- <!--ending of first code  -->
-    <!--show userr this once they are logged in  -->
+  <!--ending of first code  -->
+  <!--show user this once they are logged in  -->
   <!--section 2-->
   <div id="show-user">
+    <section id="home">
+    <h2>welcome</h2>
+
+    </section>
+
     <section id="two" style="min-height: 800px">  
-    <form>
+      <form>
 
-  <div style="center" class="row">
-    <h2 class="text-center" style ="color: white">Click on Hobbies Buttons to Match With Other Users'</h2>
-    <br>
-    <div class="col-sm-4">
-      
-            <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="running">
-            <img class="acts" class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
-          
+        <div style="text-align: center" class="row">
+          <h2 class="text-center" style ="color: white">Click on Hobbies Buttons to Match With Other Users'</h2>
+          <br>
+          <div class="col-sm-4">
 
-          
-            <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="singing">
-            <img class="acts" class="irc_mi" src="http://www.pngmart.com/files/3/Singing-PNG-Photos-279x279.png">
-          
+            <div>
+              <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="running">
+              <img class="acts" class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
+            </div>
 
-          
-            <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="reading">
-            <img class="acts" class="irc_mi" src="https://www.tsl.texas.gov/sites/default/files/public/tslac/ld/projects/trc/2010/clipartbw/images/lyinggirl_450g.gif">
-          
-    </div>
-        
+            <div>
+              <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="singing">
+              <img class="acts" class="irc_mi" src="http://www.pngmart.com/files/3/Singing-PNG-Photos-279x279.png">
+            </div>
 
-    <div class="col-sm-4">
-      
-            <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="dancing">
-            <img class="acts" class="irc_mi" src="http://3p76s62sopuo2hcrwa1rxucp.wpengine.netdna-cdn.com/wp-content/uploads/2016/08/dancers.png">
-            
+            <div>
+              <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="reading">
+              <img class="acts" class="irc_mi" src="https://www.tsl.texas.gov/sites/default/files/public/tslac/ld/projects/trc/2010/clipartbw/images/lyinggirl_450g.gif">
+            </div>
 
-          
-            <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="hiking">
-            <img class="acts" class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
-          
-
-          
-            <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="Gaming">
-            <img class="acts" class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
-          
-    </div>
+          </div>
 
 
-    <div class="col-sm-4">
-            
+          <div class="col-sm-4">
+
+            <div>
               <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="dancing">
               <img class="acts" class="irc_mi" src="http://3p76s62sopuo2hcrwa1rxucp.wpengine.netdna-cdn.com/wp-content/uploads/2016/08/dancers.png">
-            
+            </div>
 
-            
-            <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="hiking">
-            <img class="acts" class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
-            
+            <div>
+              <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="hiking">
+              <img class="acts" class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
+            </div>
 
-          
-            <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="Gaming">
-            <img class="acts" class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
-          
-    </div>
+            <div>
+              <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="Gaming">
+              <img class="acts" class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
+            </div>
 
-  </div>
+          </div>
+
+
+          <div class="col-sm-4">
+
+            <div>
+              <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="dancing">
+              <img class="acts" class="irc_mi" src="http://3p76s62sopuo2hcrwa1rxucp.wpengine.netdna-cdn.com/wp-content/uploads/2016/08/dancers.png">
+            </div>
+
+            <div>
+              <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="hiking">
+              <img class="acts" class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
+            </div>
+
+            <div>
+              <input type="button" class="button button-raised button-primary button-pill submit-hobbies" name="newsletter" value="Gaming">
+              <img class="acts" class="irc_mi" src="http://www.clker.com/cliparts/s/o/Q/j/T/g/running-man-hi.png">
+            </div>
+
+          </div>
+
+        </div>
 
       </form>
-      </section>
-      <!-- section 3-->
-      <section id ="three" style="min-height: 900px;  background-color: green">              
-        <br>
-        <br>
+    </section>
+    <!-- section 3-->
+        <!-- section 3-->
+    <section id ="three" style="min-height: 900px;  background-color: green">              
+      <br>
+      <br>
       <div class="container">
         <p style="font:white; font-size: 25px; text-align: center">All users searches will be compared with other users' searches!</p>
         <div id="pix-bay">
@@ -182,77 +194,69 @@
 
       <div class="row">
         <div class="col-md-6 ">
-            <input type="text" id="search-pictures">
-            <button id="search-pictures-button">Search</button>
+          <input type="text" id="search-pictures">
+          <button id="search-pictures-button">Search</button>
+          <div id="invalid-search-image"></div>
         </div>
 
         <div class="col-md-6 offset-md-6">
-            <input type="text" id="search-videos">
-            <button id="search-button">Search</button>
+          <input type="text" id="search-videos">
+          <button id="search-button">Search</button>
+          <div id="invalid-search-video"></div>
         </div>
       </div>
 
-    <div class="panel-body">
-          <div class="row main-content">
+      <div class="panel-body">
+        <div class="row main-content">
 
+          <div id="pics" class="col-md-6">Pics
+          </div>  
 
-            <div id="pics" class="col-md-6">Pics
-            </div>  
+          <div id="vids" class="col-md-6">videos
+          </div> 
 
-            <div id="vids" class="col-md-6">videos
-            </div> 
-
-          </div>
-     </div>
-      </section>
-      <section id="three" style="min-height: 600px; background-color: yellow;"> 
-
-          <h3 class="text-center" style="color: white">Chat With Your Matches</h3>
-          <br>
-          <p style="font-size: 15px; text-align: center">If you're ready hit the compare button to see your matches! Then click on their username to start chatting with them. Have Fun!</p>
-
-        <div class="container" id="Matches">
-          <div id="people"></div>
-            <button class="button button-primary button-box button-giant button-longshadow-right" id="compare ">compare</button>
-
-          <div id="matches">
-          </div>
-      </div>  
-      <div class= "container">
-          <div id="matches"><div>
-        <div id="chat-area">
-            <div id="chat-box"></div>
-            <input id="chat-input">
-            <button id="send-button">Send</button>
         </div>
       </div>
     </section>
+    <!--End section 3-->
+    <section id="four" style="min-height: 600px; background-color: yellow;"> 
 
-    <!-- section 4-->
+      <h3 class="text-center" style="color: white">Chat With Your Matches</h3>
+      <br>
+      <p style="font-size: 15px; text-align: center">If you're ready hit the compare button to see your matches! Then click on their username to start chatting with them. Have Fun!</p>
 
- <section id="four" style="min-height: 840px; color: red">
-      <p style="black">Look through the video and tell us what you like!</p>
-    <br>
-    <br>
+      <div class="container" id="Matches">
+        <div id="previous-people"></div>
+        <div id="people"></div>
+        <button class="button button-glow button-rounded button-raised button-primary" class="button button-primary button-box button-giant button-longshadow-right" id="compare ">compare</button>
+      </div>  
+      <div class= "container">
+        <div id="chat-area">
+          <div id="chat-box"></div>
+          <input id="chat-input">
+          <button class="button button-glow button-rounded button-raised button-primary" id="send-button">Send</button>
+        </div>
+      </div>
+    </section>
+    <!-- section 5-->
 
-  </section>
-</div>
-      <!-- section 5-->
+  </div>
 
- <section id="five" style="min-height: 840px;">
+
+  <section id="five" style="min-height: 840px;">
     <div class="col-md-8" id="contact-form">
       <h4>Brad Hemmerick
         <img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAqrAAAAJGUwMjFiZGY1LWE1MzItNDU1OC1hZjdkLWU2YjAxZDU2ZjUzZQ.jpg"
-          height="128" width="128">
+        height="128" width="128">
       </h4>
       <p>My name is Brad Hemmerick. I grew up in Long Island New York, and moved to Houston Texas when I was fifteen. I began
         practing musical theatre when I was four years old, practicing singing, acting, and dancing. I started coding my
         senior year of High School, briefly learning html and css. I am currently a student at the UT Houston Coding Bootcamp
-        in order to become a real coder.</p>
-        <a class="github-button" href="https://github.com/BradHemmerick" aria-label="Brad Hemmerick on GitHub">Brad Hemmerick</a>
+      in order to become a real coder.</p>
+      <a class="github-button" href="https://github.com/BradHemmerick" aria-label="Brad Hemmerick on GitHub">Brad Hemmerick</a>
       <h4>Hau Tran
         <img alt="" class="avatar width-full rounded-2" height="128" src="https://avatars1.githubusercontent.com/u/31061720?s=460&amp;v=4"
-          width="128">
+        width="128">
       </h4>
       <p>My interest in coding started when I realize that a was genius who can create anything he desires through hardwork
         and dedication. To my understanding of coding so far is that is very possible with work god like work ethics. I want
@@ -260,16 +264,16 @@
         and a wild dancer with minimal rhythm. I enjoy going out to festivals and dance my heart out. My true passion is
         to travel the world on foot, and helping the world out with any mean possible. I want to use my brain to create helpful
         ideas for the world while I travel. Hopefully connecting the poor and the rich, and making that margin alot more
-        tiny.</p>
-        <a class="github-button" href="https://github.com/hautran1993" aria-label="Hau Tran on GitHub">Hau Tran</a>
+      tiny.</p>
+      <a class="github-button" href="https://github.com/hautran1993" aria-label="Hau Tran on GitHub">Hau Tran</a>
       <h4>Michael Nguyen</h4>
       <p></p>
       <a class="github-button" href="https://github.com/michaelnguyen55" aria-label="Michael Nguyen on GitHub">Michael Nguyen</a>
     </div>
   </section>
 
-       <!-- user modals -->
-  <div class="modal fade" tabindex="-1" role="dialog" id="signUp-modal">
+  <!-- user modals -->
+  <div class="modal fade" tabindex="-1" role="dialog" id="sign-up-modal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -277,20 +281,23 @@
           <h4 class="modal-title">User Sign Up</h4>
         </div>
         <div class="modal-body">
-           <form>
+          <form>
             <div class="form-group">
-            <label>User Name</label>
-            <input class="form-control" type="text" id="sign-user-name">
+              <label>User Name</label>
+              <input class="form-control" type="text" id="sign-user-name">
             </div>
             <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" id="sign-user-password">
+              <label>Password</label>
+              <input type="password" class="form-control" id="sign-user-password">
             </div>
             <div class="form-group">
-            <label>Email</label>        
-            <input type="email" class="form-control" placeholder="example@gmail.com" id="sign-user-email">
+              <label>Email</label>        
+              <input type="email" class="form-control" placeholder="example@gmail.com" id="sign-user-email">
             </div>
-        </form>
+
+            <div id="sign-up-text"></div>
+
+          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -299,8 +306,9 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
+
   <!-- login modal -->
-   <div class="modal fade" tabindex="-1" role="dialog" id="login-modal">
+  <div class="modal fade" tabindex="-1" role="dialog" id="login-modal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -308,32 +316,33 @@
           <h4 class="modal-title">User Log in</h4>
         </div>
         <div class="modal-body">
-           <form>
+          <form>
             <div class="form-group">
-            <label>Username</label>        
-            <input class="form-control" type="text" id="login-user-name">
+              <label>Username</label>        
+              <input class="form-control" type="text" id="login-user-name">
             </div>
-           
+
             <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" id="login-user-password">
+              <label>Password</label>
+              <input type="password" class="form-control" id="login-user-password">
             </div>
-            
-        </form>
+
+            <div id="incorrect-login-text"></div>
+
+          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="log-in">Log in</button>
+          <button type="button" class="btn btn-primary" id="login">Log in</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 
-
-<script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="logic.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: '5cd83ccd-7118-474c-be97-594d7f8ed19a', f: true }); done = true; } }; })();</script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="logic.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: '5cd83ccd-7118-474c-be97-594d7f8ed19a', f: true }); done = true; } }; })();</script>
 </body>
 </html>

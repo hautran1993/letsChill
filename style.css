@@ -1,45 +1,20 @@
-iframe {
-    border: solid red 5px;
-    border-radius: 5px;
-}   
-
-.video-div {
-    margin: 10px;
-    width: 100%;
+h4, p {
+  color: white;
 }
-
-.video-number {
-    width: 100%;
-    position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 25px;
-    height: 0;
-    margin-bottom: 5px;
-}
-
+​
+​
+​
+/*<-------------------------Welcome Page Carousel------------------------->*/
 .custom-class{
-    padding: 5px;
+  padding: 5px;
 }
-
+​
 .carousel-control {
-    border: 10px 50px 10px 10px;
+  border: 10px 50px 10px 10px;
 }
-
-#pics {
-    padding: 5px;
-}
-
-.video-number iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
+​
 #one {
-/*    background-image: url("assets/images/connect.png");
-*/    background-position: center center;
+    background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -48,11 +23,15 @@ iframe {
     width: 750px;
     line-height: 1;
     height: 600px;
-    border: solid #9900cc 5px;
+    border: solid #1a75ff 5px;
     margin: 0px;
     padding: 5px;
-    opacity: .99;
     border-radius: 20px 80px 20px 80px;
+}
+
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 /*#hobbies {
@@ -64,6 +43,19 @@ iframe {
     padding-left: 80px;
 
 }*/
+#home {
+    background-image: url(assets/images/welcome.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 84%;
+    height: 600px;
+    position: relative;
+    left: 85px;
+    top: 80px;
+    padding: solid red 5px;
+    border-radius: 20px 80px 20px 80px;
+    box-shadow: 7px 7px 10px #888888;
+}    
 
 #myCarousel {
     width: 750px; 
@@ -71,90 +63,167 @@ iframe {
     position: relative;
     left: 170px;
     padding: solid red 5px;
+    border-radius: 20px 80px 20px 80px;
+    box-shadow: 7px 7px 10px #888888;
 }
 
 .carousel-control.right {
     border-radius: 20px 80px 20px 80px;
-    visibility: hidden;
     color: cyan;
-    box-shadow: 5px 5px 10px #3c3f00;
+    visibility: none;
 }
 
 .carousel-control.left {
     border-radius: 20px 80px 20px 80px;
-    visibility: hidden;
     color: cyan;
-    box-shadow: 5px 5px 5px #3c2f00;
+    visibility: none;
 }
-
-
+/*<-------------------------End Welcome Page Carousel------------------------->*/
+​
+​
+​
+/*<-------------------------Youtube Videos------------------------->*/
+iframe {
+  border: solid red 5px;
+  border-radius: 5px;
+}  
+​
+.video-div {
+  margin: 10px;
+  width: 100%;
+}
+​
+.video-number {
+  width: 100%;
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+  margin-bottom: 5px;
+}
+​
+.video-number iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/*<-------------------------End Youtube Videos------------------------->*/
+​
+​
+​
+/*<-------------------------PixaBay Pictures------------------------->*/
+#pics {
+  padding: 5px;
+}
+/*<-------------------------End PixaBay Pictures------------------------->*/
+​
+​
+/*<-------------------------Navbar------------------------->*/
+.active {
+  pointer-events: none;
+}
+​
+#myNavbar a {
+  -webkit-transition: all 0.20s ease-in-out;
+  -moz-transition: all 0.20s ease-in-out;
+  -ms-transition: all 0.20s ease-in-out;
+  -o-transition: all 0.20s ease-in-out;
+}
+​
+#myNavbar a:hover {
+  background-color: #cc7fe5;
+  cursor: pointer;
+}
+​
+#myNavbar a:active {
+  background-color: #7a00a3;
+}
+/*<-------------------------End Navbar------------------------->*/
+​
+​
+/*<------------------------------Page Sections------------------------------>*/
+#two, #three, #four, #five {
+  padding: 50px;
+}
+​
+#one {
+/* background-image: url("assets/images/connect.png");*/
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+​
 #two {
-    background-image: url("https://cocoalakedesign.files.wordpress.com/2009/08/linds21.jpg?w=1024&amp;h=636");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url("https://cocoalakedesign.files.wordpress.com/2009/08/linds21.jpg?w=1024&amp;h=636");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
-h4, p {
-    color: white;
-}
-
+/*<------Section Two Hobbies Buttons------>*/
 .button-raised.button-primary {
-    border-color: purple;
-    background: purple;
+  border-color: purple;
+  background: purple;
 }
-
-#five {
-    background-image: url("http://www.designbolts.com/wp-content/uploads/2012/11/Free-Stressed-linen-patterns.jpg");
-    height: 100%;
-    width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
+​
 .button-raised.button-primary:hover {
-    border-color: pink;
-    background: pink;
+  border-color: pink;
+  background: pink;
 }
-
+​
 .acts {
-    height: 7%;
-    width: 7%;
+  height: 7%;
+  width: 7%;
 }
 .button-circle.button-giant, .button-box.button-giant, .button-square.button-giant{
-    width: 112px;
+  width: 112px;
 }
-
+​
 .button-raised.button-primary:hover {
-    border-color: pink;
-    background: pink;
+  border-color: pink;
+  background: pink;
 }
-
+/*<------End Section Two Hobbies Buttons------>*/
+​
+#five {
+  background-image: url("http://www.designbolts.com/wp-content/uploads/2012/11/Free-Stressed-linen-patterns.jpg");
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/*<------------------------------End Page Sections------------------------------>*/
+​
+​
+​/*<------------------------------Chat------------------------------>*/
+.usernameSpan, .usernameSpanHome {
+    font-weight: bold;
+    color: #9900cc;
+    cursor: pointer;
+}
+/*<------------------------------End Chat------------------------------>*/
+/*<-------------------------Media Queries------------------------->*/
 @media screen and (max-width: 640px) {
-    .video-div {
-        width: 100%;
-    }
+  .video-div {
+    width: 100%;
+  }
 }
-
+​
 @media only screen and (max-width: 768px) {
-    section{
-        width: 100%
-    }
-    .video-div {
-        width: 100%;
-    }
-    #myCarousel {
-        width: 100%
-    }
+  section{
+    width: 100%
+  }
+  .video-div {
+    width: 100%;
+  }
+  #myCarousel {
+    width: 100%
+  }
 }
 @media screen and (max-width: 640px) {
-    .video-div {
-        width: 100%;
-    }
+  .video-div {
+    width: 100%;
+  }
 }
-/*border=solid "color" 5px*/
-/*margin 5px*/
-/*border=solid "color" 5px*/
-/*margin 5px*/
-
