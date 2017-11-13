@@ -44,6 +44,7 @@ h4, p {
 .row {
     margin-left: 0px;
     margin-right: 0px;
+<<<<<<< HEAD
 }
 
 #chat-top {
@@ -162,6 +163,126 @@ iframe {
   -o-transition: all 0.20s ease-in-out;
 }
 
+=======
+}
+
+#chat-top {
+  background-image: url("assets/images/ny.png");
+  margin: 0px;
+}
+
+/*#hobbies {
+    position: relative;
+    left: 14%;
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+
+}*/
+#home {
+    background-image: url(assets/images/welcome.jpeg);
+    background-position: center;
+    /* background-repeat: no-repeat; */
+    width: 70%;
+    height: 600px;
+    position: relative;
+    left: 190px;
+    top: 120px;
+    border-radius: 200px 70px 200px 70px;
+    box-shadow: 7px 5px 10px #888888;
+}  
+
+#myCarousel {
+    width: 750px; 
+    height: 600px;
+    position: relative;
+    left: 170px;
+    padding: solid red 5px;
+    border-radius: 20px 80px 20px 80px;
+    box-shadow: 10px 5px 10px 2px #888888;
+}
+
+#line {
+    margin-left: 93%;
+}
+
+#recent {
+  margin-left: 93%;
+  margin-right: 0px;
+}
+
+#friends {
+  margin-left: 93%;
+  margin-right: 0px;
+}
+
+.carousel-control.right {
+    border-radius: 20px 80px 20px 80px;
+    color: cyan;
+    visibility: none;
+}
+
+.carousel-control.left {
+    border-radius: 20px 80px 20px 80px;
+    color: cyan;
+    visibility: none;
+}
+/*<-------------------------End Welcome Page Carousel------------------------->*/
+​
+​
+​
+/*<-------------------------Youtube Videos------------------------->*/
+iframe {
+  border: solid red 5px;
+  border-radius: 5px;
+}  
+​
+.video-div {
+  margin: 10px;
+  width: 100%;
+}
+​
+.video-number {
+  width: 100%;
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+  margin-bottom: 5px;
+}
+​
+.video-number iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/*<-------------------------End Youtube Videos------------------------->*/
+​
+​
+​
+/*<-------------------------PixaBay Pictures------------------------->*/
+#pics {
+  padding: 5px;
+}
+/*<-------------------------End PixaBay Pictures------------------------->*/
+​
+​
+/*<-------------------------Navbar------------------------->*/
+.active {
+  pointer-events: none;
+}
+​
+#myNavbar a {
+  -webkit-transition: all 0.20s ease-in-out;
+  -moz-transition: all 0.20s ease-in-out;
+  -ms-transition: all 0.20s ease-in-out;
+  -o-transition: all 0.20s ease-in-out;
+}
+
+>>>>>>> ee301220ea03eab72b6f79415bef1c833cb0882b
 ​
 #myNavbar a:hover {
   background-color: #cc7fe5;
@@ -261,4 +382,8 @@ iframe {
   .video-div {
     width: 100%;
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> ee301220ea03eab72b6f79415bef1c833cb0882b
