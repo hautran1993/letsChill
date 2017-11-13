@@ -1,6 +1,4 @@
-$(document).ready(function(){
-//making sure our logic is connected
-console.log("we ready")
+$(document).ready(function() {
 
 //<-----------------------------------------------Navbar And Sections Show/Hide----------------------------------------------->
 $("#show-user").hide();
@@ -16,51 +14,39 @@ $("#five").hide();
 var sections = ["#home", "#two", "#three", "#four", "#five"];
 var nav = ["#home-nav", "#hobbies-nav", "#videos-nav", "#chat-nav", "#developers-nav"];
 
-function hidePage() {
+function hidePage(fadeId, activeId) {
   for(var i = 0; i < nav.length; i++) {
     $(sections[i]).hide();
-    $(nav[i]).removeClass("active");
-  }
+    $(nav[i]).removeClass("active1");
+  };
+  $(fadeId).fadeIn(500);
+  $(activeId).addClass("active1");
 };
 
 $(document).on("click", "#welcome-nav", function() {
-  $("#five").hide();
-  $("#developers-nav").removeClass("active");
-  $("#one").fadeIn(500);
-  $("#welcome-nav").addClass("active");
+  hidePage("#one", "#welcome-nav")
 });
 
 $(document).on("click", "#home-nav", function() {
-  hidePage();
-  $("#home-nav").addClass("active");
-  $("#home").fadeIn(500);
+  hidePage("#home", "#home-nav");
 });
-
 $(document).on("click", "#hobbies-nav", function() {
-  hidePage();
-  $("#hobbies-nav").addClass("active");
-  $("#two").fadeIn(500);
+  hidePage("#two", "#hobbies-nav");
 });
 
 $(document).on("click", "#videos-nav", function() {
-  hidePage();
-  $("#videos-nav").addClass("active");
-  $("#three").fadeIn(500);
+  hidePage("#three", "#videos-nav");
 });
 
 $(document).on("click", "#chat-nav", function() {
-  hidePage();
-  $("#chat-nav").addClass("active");
-  $("#four").fadeIn(500);
+  hidePage("#four", "#chat-nav");
 });
 
 $(document).on("click", "#developers-nav", function() {
-  hidePage();
-  $("#welcome-nav").removeClass("active");
+  $("#welcome-nav").removeClass("active1");
   $("#one").hide();
 
-  $("#developers-nav").addClass("active");
-  $("#five").fadeIn(500);
+  hidePage("#five", "#developers-nav");
 });
 //<-----------------------------------------------End Navbar And Sections Show/Hide----------------------------------------------->
 
@@ -115,7 +101,7 @@ function signUp() {
       var userExists = snapshot.child(username).exists();
       //If someone with the same entered username already exists, a new account will not be created.
       if(userExists === false) {
-        console.log("You have successfully signed up!");
+        $("#sign-up-text").html("You have successfully signed up!");
         database.ref("users/" + username).set({
           username: username,
           password: password,
@@ -157,11 +143,10 @@ function login() {
       var userExists = snapshot.child("users/" + username).exists();
       //If the entered username does not exist, a message saying it doesn't exist will show.
       if(userExists === true) {
-        console.log("This username exists.")
         //Checks if the password entered matches the one in the database
         if(snapshot.child("users/" + username + "/password").val() === currentPassword) {
           $("#login-modal").modal("toggle");
-          $("#sign-up-nav").html("<a style='color:white'>Welcome: " + username + "!</a>");
+          $("#sign-up-nav").html("<a style='color:white; pointer-events:none'>Welcome: " + username + "!</a>");
           $("#login-nav").hide();
           $("#welcome-nav").hide();
           $("#front-page").hide();
@@ -172,9 +157,10 @@ function login() {
           $("#chat-nav").show();
 
           $("#show-user").show();
-          $("#four").hide();
+          $("#five").hide();
+          $("#developers-nav").removeClass("active1");
           $("#home").fadeIn(500);
-          $("#home-nav").addClass("active");
+          $("#home-nav").addClass("active1");
 
           currentEmail = snapshot.child("users/" + username + "/email").val();
           if(snapshot.child("users/" + username + "/likes").exists()) {
@@ -183,28 +169,27 @@ function login() {
           
           //Puts in users that have messaged you before
           if(snapshot.child("users/" + username + "/usersChatWith").exists()) {
-
             var allMatchesDiv = $("<div>");
-            snapshot.child("users/" + username + "/usersChatWith").forEach(function(child) {
-              var newMatchDiv = $("<div>");
-              var usernameSpan = $("<span>");
+            database.ref("users/" + username + "/usersChatWith").on("child_added", function(snapshot) {
+              
+                var newMatchDiv = $("<div>");
+                var usernameSpan = $("<button class='btn btn-danger'></button");
 
-              var nameSort = [currentUsername, child.val()]
-              nameSort = nameSort.sort();
-              nameSort = nameSort.join("");
+                var nameSort = [currentUsername, snapshot.val()]
+                nameSort = nameSort.sort();
+                nameSort = nameSort.join("");
 
-              usernameSpan.attr("data-chatId", nameSort);
-              usernameSpan.attr("data-otherUsername", child.val())
-              usernameSpan.text(child.val());
-              usernameSpan.addClass("usernameSpanHome");
-              newMatchDiv.append(usernameSpan);
+                usernameSpan.attr("data-chatId", nameSort);
+                usernameSpan.attr("data-otherUsername", snapshot.val())
+                usernameSpan.text(snapshot.val());
+                usernameSpan.addClass("usernameSpanHome");
+                newMatchDiv.append(usernameSpan);
 
-              $(allMatchesDiv).append(newMatchDiv);
+                $(allMatchesDiv).append(newMatchDiv);
 
-            //Div to put in users that have message you before
-            $("#previous-people").html(allMatchesDiv);
-          });
-
+                //Div to put in users that have message you before
+                $("#previous-people").html(allMatchesDiv);
+              });
           };
         }
         else{
@@ -250,9 +235,9 @@ function compare() {
           };
           similar = currentLikes.compare(otherUserLikes);
           //Change number here to compare how many likes should be a match.
-          if(similar.length > 5) {
+          if(similar.length > 2) {
             var newMatchDiv = $("<div>");
-            var usernameSpan = $("<span>");
+            var usernameSpan = $("<button class='btn btn-danger'>");
 
             var nameSort = [currentUsername, child.val().username]
             nameSort = nameSort.sort();
@@ -281,7 +266,7 @@ function compare() {
     }
     else {
       //If the current user has no likes this is ran.
-      console.log("Get some likes first!");
+      $("#people").html("Get some likes first!");
     };
 
   });  
@@ -319,7 +304,6 @@ function hobbies(button) {
   var hobbieLiked = $(button).val();
   if(likedHobbies.indexOf(hobbieLiked) === -1) {
     likedHobbies.push(hobbieLiked);
-    console.log("this")
     combineLikes();
   };
 };
@@ -362,7 +346,6 @@ function getPictures() {
       url: queryURL,
       method: "GET"
     }).done(function(response) {
-      console.log(response);
       var newPictures = [];
       for(var i =0; i < response.hits.length; i++) {
         newPictures.push(response.hits[i].webformatURL);
@@ -384,7 +367,7 @@ function picturesReady() {
     pictures.addClass("custom-class");
     pictures.attr("src", pictureSearched[i]);
     //new button
-    var newButton = $("<button class='like-image'>Like</button>");
+    var newButton = $("<button class='like-image; btn btn-danger'>Like</button>");
     newButton.attr("data-name", pictureSearched[i]);
 
     $("#pics").append(pictures);
@@ -444,17 +427,24 @@ $("#chat-area").hide();
           if(messageNumber > 19) {
             messageNumber--;
             database.ref("chat/").once("child_added", function(firstChild) {
-              database.ref("chat/" + firstChild.key).remove();
+              database.ref("chat/" + currentChatId + "/" + firstChild.key).remove();
               $("#chat-box").find("div").first().remove();
             });
           };
 
           var messageDiv = $("<div>");
           $(messageDiv).append(snapshot.val().username + ": " + snapshot.val().message);
+          if(snapshot.val().username === currentUsername) {
+            messageDiv.addClass("current-user-message");
+          }
+          else {
+            messageDiv.addClass("other-user-message");
+          };
+          
           $("#chat-box").append(messageDiv);
 
           //If current user's chat-box scroll is at the bottom, automatically scroll down.
-          if($("#chat-box").scrollTop() +  $("#chat-box").innerHeight() + 30 > $("#chat-box")[0].scrollHeight){
+          if($("#chat-box").scrollTop() +  $("#chat-box").innerHeight() + 100 > $("#chat-box")[0].scrollHeight){
             $("#chat-box").scrollTop($("#chat-box")[0].scrollHeight);
           };
 
@@ -476,7 +466,7 @@ function setChat() {
 
 function changePage() {
   hidePage();
-  $("#chat-nav").addClass("active");
+  $("#chat-nav").addClass("active1");
   $("#four").fadeIn(500);
 }
 
@@ -502,8 +492,8 @@ $(document).on("click", ".usernameSpanHome", function() {
 //youtube api has to be outside of document ready for some reason!
 // 3. This function creates an <iframe> (and YouTube player)
 //    after the API code downloads.
-var videos = ["DODLEX4zzLQ"]
-var videosTitles = ["WATCH and TRY TO STOP LAUGHING - Super FUNNY VIDEOS compilation"];
+var videos = []
+var videosTitles = [];
 // 2. This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
@@ -526,7 +516,7 @@ function onYouTubeIframeAPIReady() {
     video.attr("id", videos[i]);
     videoDiv.append(video);
 
-    var newButton = $("<button>Like</button>");
+    var newButton = $("<button class='btn btn-danger'>Like</button>");
     newButton.attr("data-name", videosTitles[i]);
     newButton.addClass("like");
     newDiv.append(newButton);
@@ -559,7 +549,6 @@ function getVideos() {
       var videosSearchedTitles = [];
 
       for(var i =0; i < response.items.length; i++) {
-        console.log(response);
         videosSearched.push(response.items[i].id.videoId);
         videosSearchedTitles.push(response.items[i].snippet.title);
       }
