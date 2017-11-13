@@ -173,7 +173,7 @@ function login() {
             database.ref("users/" + username + "/usersChatWith").on("child_added", function(snapshot) {
               
                 var newMatchDiv = $("<div>");
-                var usernameSpan = $("<span>");
+                var usernameSpan = $("<button class='btn btn-danger'></button");
 
                 var nameSort = [currentUsername, snapshot.val()]
                 nameSort = nameSort.sort();

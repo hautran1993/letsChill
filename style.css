@@ -8,7 +8,7 @@ p {
     line-height: 20px;
 }
 
-h1,h2,h3,h4 {
+h1,h2,h4 {
     color: black;
     font-family: "Times New Roman", Georgia, Serif;
     font-size: 24px;
@@ -16,6 +16,9 @@ h1,h2,h3,h4 {
     font-variant: normal;
     font-weight: 500;
     line-height: 26.4px;
+}
+h3 {
+  color: white;
 }
 ​
 ​
@@ -234,9 +237,11 @@ iframe {
 /*<------------------------------Chat------------------------------>*/
 .usernameSpan, .usernameSpanHome {
   font-weight: bold;
-  color: #1a75ff;
+  color: white;
   cursor: pointer;
 }
+
+.userSp
 
 #chat-top {
     height: 400px;
