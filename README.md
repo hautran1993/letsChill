@@ -9,6 +9,8 @@ https://hautran1993.github.io/letsChill/
 * [Hobbies](#hobbies)
 * [Media](#media)
 * [Chat](#chat)
+* [Contact Us](#contact-us)
+* [Developers Page](#developers-page)
 * [Technologies Used](#technologies-used)
 
 # How To Use letsChill
@@ -64,6 +66,14 @@ https://hautran1993.github.io/letsChill/
 4. You can also see anyone who messaged you under "Recent Chats" on the home page.
 
 <img src="./assets/images/read-me-images/Recent-Chat.PNG">
+
+## Contact Us
+1. Click the "Contact Us" button and fill out the boxes if you wish to contact us.
+
+<img src="./assets/images/read-me-images/Contact.PNG">
+
+## Developers Page
+* This pages shows the developers that were involved in the project.
 
 ## Technologies Used
 * Javascript
